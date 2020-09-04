@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Warrior Water and its customer order characteristics
     /// </summary>
-    class WarriorWater
+    public class WarriorWater
     {
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Smokehouse Skeleton and its customer order characteristics
     /// </summary>
-    class SmokehouseSkeleton
+    public class SmokehouseSkeleton
     {
         /// <summary>
         /// Sets the inital default price of the food item

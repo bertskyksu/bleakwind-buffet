@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Candlehearth Coffee and its customer order characteristics
     /// </summary>
-    class CandlehearthCoffee
+    public class CandlehearthCoffee
     {
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// This class represents the side Mad Otar Grits and its customer order characteristics
     /// </summary>
-    class MadOtarGrits
+    public class MadOtarGrits
     {
 
         /// <summary>

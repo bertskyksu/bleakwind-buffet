@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Aretino Apple Juice and its customer order characteristics
     /// </summary>
-    class AretinoAppleJuice
+    public class AretinoAppleJuice
     {
         /// <summary>
         /// This gets the Size of the food item and sets it to an inital value of Small

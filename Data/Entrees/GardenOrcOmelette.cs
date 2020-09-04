@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Garden Orc Omelette and its customer order characteristics
     /// </summary>
-    class GardenOrcOmelette
+    public class GardenOrcOmelette
     {
         /// <summary>
         /// Sets the inital default price of the food item

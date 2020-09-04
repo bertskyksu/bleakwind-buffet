@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Philly Poacher and its customer order characteristics
     /// </summary>
-    class PhillyPoacher
+    public class PhillyPoacher
     {
         /// <summary>
         /// Sets the inital default price of the food item

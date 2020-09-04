@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Double Draugr and its customer order characteristics
     /// </summary>
-    class DoubleDraugr
+    public class DoubleDraugr
     {
         /// <summary>
         /// Sets the inital default price of the food item
@@ -63,7 +63,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// makes a new empty list for any special food insturctions from the customer
         /// </summary>
-        private List<string> specialInstructions = new List<string>();//backing variable
+        //private List<string> specialInstructions = new List<string>();//backing variable
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>

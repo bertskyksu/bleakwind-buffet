@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Briarheart Burger and its customer order characteristics
     /// </summary>
-    class BriarheartBurger
+    public class BriarheartBurger
     {
         /// <summary>
         /// Sets the inital default price of the food item

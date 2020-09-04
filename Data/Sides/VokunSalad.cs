@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// This class represents the side Vokun Salad and its customer order characteristics
     /// </summary>
-    class VokunSalad
+    public class VokunSalad
     {
 
         /// <summary>

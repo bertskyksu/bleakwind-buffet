@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Thalmor Triple and its customer order characteristics
     /// </summary>
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         /// <summary>
         /// Sets the inital default price of the food item

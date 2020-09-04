@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// This class represents the side DragonbornWaffleFries and its customer order characteristics
     /// </summary>
-    class DragonbornWaffleFries
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// This gets the Size of the food item and sets it to an inital value of Small

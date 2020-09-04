@@ -14,21 +14,9 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Sailor Soda and its customer order characteristics
     /// </summary>
-    class SailorSoda
+    public class SailorSoda
     {
 
-        /// <summary>
-        /// sets an enumerator for the different variations of soda flavor
-        /// </summary>
-        public enum SodaFlavor
-        {
-            Blackberry,
-            Cherry,
-            Grapefruit,
-            Lemon,
-            Peach,
-            Watermelon
-        }
         /// <summary>
         /// sets the initial default Soda Flavor as Cherry.
         /// </summary>

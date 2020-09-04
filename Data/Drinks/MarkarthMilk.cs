@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Markarth Milk and its customer order characteristics
     /// </summary>
-    class MarkarthMilk
+    public class MarkarthMilk
     {
 
         /// <summary>

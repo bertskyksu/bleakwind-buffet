@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// This class represents the side Fried Miraak and its customer order characteristics
     /// </summary>
-    class FriedMiraak
+    public class FriedMiraak
     {
         /// <summary>
         /// This gets the Size of the food item and sets it to an inital value of Small

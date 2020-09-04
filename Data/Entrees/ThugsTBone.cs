@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Thugs T-Bone
     /// </summary>
-    class ThugsTBone
+    public class ThugsTBone
     {
         /// <summary>
         /// Sets the inital default price of the food item
