@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>BleakwindBuffet.Data</RootNamespace>
+<<<<<<< HEAD
     <AssemblyName>BleakwindBuffet.Data</AssemblyName>
+=======
+>>>>>>> 3a790b10b640de034cebfaeb00f26d3b9734500a
   </PropertyGroup>
 
 </Project>
