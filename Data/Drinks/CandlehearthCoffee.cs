@@ -31,21 +31,17 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                return price;
-            }
-            set
-            {
                 if (Size == Size.Large)
                 {
-                    price = 1.75;
+                    return 1.75;
                 }
                 else if (Size == Size.Medium)
                 {
-                    price = 1.25;
+                    return 1.25;
                 }
                 else
                 {
-                    price = 0.75; //Size.small
+                    return 0.75; //Size.small
                 }
             }
         }
@@ -58,23 +54,20 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public uint Calories
         {
+           
             get
-            {
-                return calories;
-            }
-            set
             {
                 if (Size == Size.Large)
                 {
-                    calories = 20;
+                    return 20;
                 }
                 else if (Size == Size.Medium)
                 {
-                    calories = 10;
+                    return 10;
                 }
                 else
                 {
-                    calories = 7; //Size.small
+                    return 7; //Size.small
                 }
             }
         }

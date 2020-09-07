@@ -31,21 +31,17 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                return price;
-            }
-            set
-            {
                 if (Size == Size.Large)
                 {
-                    price = 0.96;
+                    return 0.96;
                 }
                 else if (Size == Size.Medium)
                 {
-                    price = 0.76;
+                    return 0.76;
                 }
                 else
                 {
-                    price = 0.42; //Size.small
+                    return 0.42; //Size.small
                 }
             }
         }
@@ -60,21 +56,17 @@ namespace BleakwindBuffet.Data.Sides
         {
             get
             {
-                return calories;
-            }
-            set
-            {
                 if (Size == Size.Large)
                 {
-                    calories = 100;
+                    return 100;
                 }
                 else if (Size == Size.Medium)
                 {
-                    calories = 89;
+                    return 89;
                 }
                 else
                 {
-                    calories = 77; //Size.small
+                    return 77; //Size.small
                 }
             }
         }
@@ -101,7 +93,7 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public override string ToString()
         {
-            return $"{Size} Dragomborn Waffle Fries";
+            return $"{Size} Dragonborn Waffle Fries";
 
         }
     }

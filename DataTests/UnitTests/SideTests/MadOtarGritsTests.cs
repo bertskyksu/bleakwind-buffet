@@ -7,24 +7,34 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Sides;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        MadOtarGrits side = new MadOtarGrits();
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            Assert.Equal(Size.Small, side.Size);
         }
                 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            side.Size = Size.Large;
+            Assert.Equal(Size.Large, side.Size);
+            side.Size = Size.Medium;
+            Assert.Equal(Size.Medium, side.Size);
+            side.Size = Size.Small;
+            Assert.Equal(Size.Small, side.Size);
         }
 
         [Fact]
         public void ShouldReturnCorrectStringOnSpecialInstructions()
         {
+            Assert.Empty(side.SpecialInstructions);
         }
 
         [Theory]
@@ -33,6 +43,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 1.93)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            side.Size = size;
+            Assert.Equal(price, side.Price);
         }
 
         [Theory]
@@ -41,6 +53,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 179)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            side.Size = size;
+            Assert.Equal(calories, side.Calories);
         }
 
         [Theory]
@@ -49,6 +63,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Mad Otar Grits")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            side.Size = size;
+            Assert.Equal(name, side.ToString());
         }
     }
 }
