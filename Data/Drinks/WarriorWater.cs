@@ -71,7 +71,7 @@ namespace BleakwindBuffet.Data.Drinks
                 }
                 else if (Size == Size.Small)
                 {
-                    return 44; //Size.small
+                    return 0; //Size.small
                 }
                 else throw new NotImplementedException("unknown size");
             }
