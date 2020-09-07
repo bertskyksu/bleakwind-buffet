@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

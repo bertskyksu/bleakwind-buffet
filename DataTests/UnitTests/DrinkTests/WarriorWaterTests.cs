@@ -1,5 +1,9 @@
 ﻿
-
+/*
+ * Author: Albert Winemiller
+ * Class: WarriorWaterTests.cs
+ * Purpose: Test the WarriorWaterTests.cs class in the Data library
+ */
 
 using Xunit;
 

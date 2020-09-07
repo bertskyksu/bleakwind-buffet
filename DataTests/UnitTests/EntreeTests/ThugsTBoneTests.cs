@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: ThugsTBoneTests.cs
  * Purpose: Test the ThugsTBone.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

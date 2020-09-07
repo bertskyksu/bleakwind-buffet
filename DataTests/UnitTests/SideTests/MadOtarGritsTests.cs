@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: MadOtarGritsTests.cs
  * Purpose: Test the MadOtarGrits.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

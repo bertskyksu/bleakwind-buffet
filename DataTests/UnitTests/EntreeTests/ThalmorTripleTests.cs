@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: ThalmorTripleTests.cs
  * Purpose: Test the ThalmorTriple.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

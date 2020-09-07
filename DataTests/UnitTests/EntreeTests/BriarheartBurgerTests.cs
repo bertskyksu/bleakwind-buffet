@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

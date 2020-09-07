@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using System;
 

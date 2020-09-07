@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

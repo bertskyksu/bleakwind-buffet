@@ -20,20 +20,22 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// sets the initial default Soda Flavor as Cherry.
         /// </summary>
+        /// <value> the flavor of the soda</value>
         public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
-
 
         /// <summary>
         /// This gets the Size of the food item and sets it to an inital value of Small
         /// </summary>
+        /// <value> The Size of the food item</value>
         public Size Size { get; set; } = Size.Small; //default small
-        /// <summary>
-        /// Sets the inital default price of the food item
-        /// </summary>
-        private double price = 1.42; //default will be "small" price
+
         /// <summary>
         /// This will update the price of the food item based on the order size for the customer
         /// </summary>
+        /// <exception cref="System.NotImplementedException">
+        /// Thrown if the Price for the size is not known 
+        /// </exception>
+        /// <returns> The price of the food item</returns>
         public double Price
         {
             get
@@ -46,19 +48,21 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     return 1.74;
                 }
-                else
+                else if (Size == Size.Small)
                 {
-                    return 1.42; //Size.small
+                    return 1.42;
                 }
+                else throw new NotImplementedException("unknown size");
             }
         }
-        /// <summary>
-        /// Sets the inital default calories of the food item
-        /// </summary>
-        private uint calories = 117; //default will be "small" price
+
         /// <summary>
         /// This will update the calories of the food item based on the order size for the customer
         /// </summary>
+        /// <exception cref="System.NotImplementedException">
+        /// Thrown if the Calories for the size is not known 
+        /// </exception>
+        /// <returns> the calories of the food item </returns>
         public uint Calories
         {
             get
@@ -71,24 +75,23 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     return 153;
                 }
-                else
+                else if (Size == Size.Small)
                 {
                     return 117; //Size.small
                 }
+                else throw new NotImplementedException("unknown size");
             }
         }
         /// <summary>
         /// This sets the default option of Ice in the food item as True
         /// </summary>
+        /// <value>if Ice is in the food item or not</value>
         public bool Ice { get; set; } = true; //complier makes it set to false initially. hard to access the hidden "backing field"
 
         /// <summary>
-        /// makes a new empty list for any special food insturctions from the customer
-        /// </summary>
-        private List<string> specialInstructions = new List<string>();//backing variable
-        /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
+        /// <returns> The list of special food instructions for the food item</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -103,6 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// all Drinks override the ToString() function and return the name of the drink.
         /// </summary>
+        /// <returns> the name of the food item and size description if applicable </returns>
         public override string ToString()
         {
             return $"{Size} {Flavor} Sailor Soda";

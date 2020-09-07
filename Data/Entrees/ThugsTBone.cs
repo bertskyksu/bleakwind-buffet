@@ -18,18 +18,18 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
+        /// <value> The price of the food item</value>
         public double Price => 6.44;
         /// <summary>
         /// Sets the inital default calories of the food item
         /// </summary>
+        /// <value> The calories of the food item</value>
         public uint Calories => 982;
-        /// <summary>
-        /// makes a new empty list for any special food insturctions from the customer
-        /// </summary>
-        private List<string> specialInstructions = new List<string>();//backing variable
+
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
+        /// <returns> The list of special food instructions for the food item</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -38,11 +38,11 @@ namespace BleakwindBuffet.Data.Entrees
                 //returns empty list
                 return instructions;
             }
-
         }
         /// <summary>
         /// all Entrees override the ToString() function and return the name of the Entree.
         /// </summary>
+        /// <returns> the name of the food item </returns>
         public override string ToString()
         {
             return "Thugs T-Bone";

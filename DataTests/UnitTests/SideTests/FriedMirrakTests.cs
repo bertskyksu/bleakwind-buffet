@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: FriedMiraakTests.cs
  * Purpose: Test the FriedMiraak.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

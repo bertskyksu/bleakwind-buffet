@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: AretinoAppleJuiceTests.cs
  * Purpose: Test the AretinoAppleJuice.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

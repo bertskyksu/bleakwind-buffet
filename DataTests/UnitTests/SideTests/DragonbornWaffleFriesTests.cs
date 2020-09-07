@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 

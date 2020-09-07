@@ -2,6 +2,7 @@
  * Author: Zachery Brunner
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
+ * Modified by: Albert Winemiller
  */
 using Xunit;
 
