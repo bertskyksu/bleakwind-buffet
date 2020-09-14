@@ -13,24 +13,24 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Thugs T-Bone
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
         /// <value> The price of the food item</value>
-        public double Price => 6.44;
+        public override double Price => 6.44;
         /// <summary>
         /// Sets the inital default calories of the food item
         /// </summary>
         /// <value> The calories of the food item</value>
-        public uint Calories => 982;
+        public override uint Calories => 982;
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
         /// <returns> The list of special food instructions for the food item</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

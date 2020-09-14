@@ -13,14 +13,14 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Candlehearth Coffee and its customer order characteristics
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
 
         /// <summary>
         /// This gets the Size of the food item and sets it to an inital value of Small
         /// </summary>
         /// <value> The Size of the food item</value>
-        public Size Size { get; set; } = Size.Small; //default small
+        public override Size Size { get; set; } = Size.Small; //default small
 
         /// <summary>
         /// This will update the price of the food item based on the order size for the customer
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Thrown if the Price for the size is not known 
         /// </exception>
         /// <returns> The price of the food item</returns>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Thrown if the Calories for the size is not known 
         /// </exception>
         /// <returns> the calories of the food item </returns>
-        public uint Calories
+        public override uint Calories
         {
            
             get
@@ -96,7 +96,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
         /// <returns> The list of special food instructions for the food item</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -13,18 +13,18 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Thalmor Triple and its customer order characteristics
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree
     {
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
         /// <value> The price of the food item</value>
-        public double Price => 8.32;
+        public override double Price => 8.32;
         /// <summary>
         /// Sets the inital default calories of the food item
         /// </summary>
         /// <value> The calories of the food item</value>
-        public uint Calories => 943;
+        public override uint Calories => 943;
 
         /// <summary>
         /// This sets the default option of Buns in the food item as true
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
         /// <returns> The list of special food instructions for the food item</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

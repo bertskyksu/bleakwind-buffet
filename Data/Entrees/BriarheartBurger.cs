@@ -13,19 +13,19 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Briarheart Burger and its customer order characteristics
     /// </summary>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree
     {
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
         /// <value> The price of the food item</value>
-        public double Price => 6.32;
+        public override double Price => 6.32;
 
         /// <summary>
         /// Sets the inital default calories of the food item
         /// </summary>
         /// <value> The calories of the food item</value>
-        public uint Calories => 743;
+        public override uint Calories => 743;
 
         //this format makes the code shorter since we only need to declare the getter/setter on one line
 
@@ -59,7 +59,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// adds any special food insturctions to the list if applicable and returns the list
         /// </summary>
         /// <returns> The list of special food instructions for the food item</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
