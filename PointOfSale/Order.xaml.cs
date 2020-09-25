@@ -1,7 +1,9 @@
 ﻿using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 using PointOfSale.Drinks;
 using PointOfSale.Entrees;
+using PointOfSale.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -58,16 +60,99 @@ namespace PointOfSale
         {
             //ItemCustomizationScreen footitem = new ItemCustomizationScreen();
             
+            //entrees
             if(e.fooditem is BriarheartBurger) // this will check if an object is a certain type
             {
                 BriarheartBurgerCustomization fooditem = new BriarheartBurgerCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
             }
+
+            if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
+            {
+                DoubleDraugrCustomization fooditem = new DoubleDraugrCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            if (e.fooditem is ThalmorTriple) // this will check if an object is a certain type
+            {
+                ThalmorTripleCustomization fooditem = new ThalmorTripleCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            if (e.fooditem is SmokehouseSkeleton) // this will check if an object is a certain type
+            {
+                SmokehouseSkeletonCustomization fooditem = new SmokehouseSkeletonCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            if (e.fooditem is GardenOrcOmelette) // this will check if an object is a certain type
+            {
+                GardenOrcOmeletteCustomization fooditem = new GardenOrcOmeletteCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            if (e.fooditem is PhillyPoacher) // this will check if an object is a certain type
+            {
+                PhillyPoacherCustomization fooditem = new PhillyPoacherCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            if (e.fooditem is ThugsTBone) // this will check if an object is a certain type
+            {
+                ThugsTBoneCustomization fooditem = new ThugsTBoneCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+
+            //drinks
             if (e.fooditem is SailorSoda)
             {
                 SailorSodaCustomization fooditem = new SailorSodaCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
             }
+            if (e.fooditem is MarkarthMilk)
+            {
+                MarkarthMilkCustomization fooditem = new MarkarthMilkCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is AretinoAppleJuice)
+            {
+                AretinoAppleJuiceCustomization fooditem = new AretinoAppleJuiceCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is CandlehearthCoffee)
+            {
+                CandlehearthCoffeeCustomization fooditem = new CandlehearthCoffeeCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is WarriorWater)
+            {
+                WarriorWaterCustomization fooditem = new WarriorWaterCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
+            //sides:
+            if (e.fooditem is VokunSalad)
+            {
+                VokunSaladCustomization fooditem = new VokunSaladCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is FriedMiraak)
+            {
+                FriedMiraakCustomization fooditem = new FriedMiraakCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is MadOtarGrits)
+            {
+                MadOtarGritsCustomization fooditem = new MadOtarGritsCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+            if (e.fooditem is DragonbornWaffleFries)
+            {
+                DragonbornWaffleFriesCustomization fooditem = new DragonbornWaffleFriesCustomization();
+                switchBorder.Child = fooditem; //add burger customization to the screen
+            }
+
             //switchBorder.Child = fooditem;
         }
         //how to show it now? in order component

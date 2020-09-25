@@ -26,9 +26,7 @@
         <Border x:Name="switchBorder" Grid.Column="0">
             <local:MenuSelectionScreen/>
 
-
-            <!--/local:MenuSelectionScreen-->
-            <!-- does it matter what we put here???-->
+            <!-- only one child allowed?-->
             
         </Border>
     </Grid>

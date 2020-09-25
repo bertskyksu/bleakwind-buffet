@@ -18,8 +18,6 @@ using BleakwindBuffet.Data.Sides;
 namespace PointOfSale
 {
     
-   
-    
     /// <summary>
     /// Interaction logic for MenuSelectionScreen.xaml
     /// </summary>
@@ -37,22 +35,104 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-       
-        void BriarheartBurger(object sender, RoutedEventArgs e)
+
+        //entrees
+        void BriarheartBurgerSelection(object sender, RoutedEventArgs e)
         {
-            BriarheartBurger entreeBriar = new BriarheartBurger();
-            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entreeBriar });
-            
+            BriarheartBurger entree = new BriarheartBurger();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
         }
-        void SailorsSoda(object sender, RoutedEventArgs e)
+
+        void DoubleDraugrSelection(object sender, RoutedEventArgs e)
         {
-            SailorSoda drinkSoda = new SailorSoda();
-            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drinkSoda });
+            DoubleDraugr entree = new DoubleDraugr();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
         }
-        void VokunSalad(object sender, RoutedEventArgs e)
+
+        void ThalmorTripleSelection(object sender, RoutedEventArgs e)
         {
-            VokunSalad sideSalad = new VokunSalad();
-            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = sideSalad });
+            ThalmorTriple entree = new ThalmorTriple();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
+        }
+
+        void SmokehouseSkeletonSelection(object sender, RoutedEventArgs e)
+        {
+            SmokehouseSkeleton entree = new SmokehouseSkeleton();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
+        }
+
+        void GardenOrcOmeletteSelection(object sender, RoutedEventArgs e)
+        {
+            GardenOrcOmelette entree = new GardenOrcOmelette();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
+        }
+
+        void PhillyPoacherSelection(object sender, RoutedEventArgs e)
+        {
+            PhillyPoacher entree = new PhillyPoacher();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
+        }
+
+        void ThugsTBoneSelection(object sender, RoutedEventArgs e)
+        {
+            ThugsTBone entree = new ThugsTBone();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
+        }
+
+        //drinks:
+        void SailorsSodaSelection(object sender, RoutedEventArgs e)
+        {
+            SailorSoda drink = new SailorSoda();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drink });
+        }
+
+        void MarkarthMilkSelection(object sender, RoutedEventArgs e)
+        {
+            MarkarthMilk drink = new MarkarthMilk();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drink });
+        }
+
+        void AretinoAppleJuiceSelection(object sender, RoutedEventArgs e)
+        {
+            AretinoAppleJuice drink = new AretinoAppleJuice();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drink });
+        }
+
+        void CandlehearthCoffeeSelection(object sender, RoutedEventArgs e)
+        {
+            CandlehearthCoffee drink = new CandlehearthCoffee();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drink });
+        }
+
+        void WarriorWaterSelection(object sender, RoutedEventArgs e)
+        {
+            WarriorWater drink = new WarriorWater();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = drink });
+        }
+
+        //sides:
+        void VokunSaladSelection(object sender, RoutedEventArgs e)
+        {
+            VokunSalad side = new VokunSalad();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = side });
+        }
+
+        void FriedMiraakSelection(object sender, RoutedEventArgs e)
+        {
+            FriedMiraak side = new FriedMiraak();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = side });
+        }
+
+        void MadOtarGritsSelection(object sender, RoutedEventArgs e)
+        {
+            MadOtarGrits side = new MadOtarGrits();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = side });
+        }
+
+        void DragonbornWaffleFriesSelection(object sender, RoutedEventArgs e)
+        {
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = side });
         }
 
         void resetbuttons()

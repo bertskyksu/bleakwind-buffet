@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.Entrees.BriarheartBurgerCustomization"
+﻿<UserControl x:Class="PointOfSale.Entrees.DoubleDraugrCustomization"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,6 +22,15 @@
             </CheckBox>
             <CheckBox Name="Cheese" IsChecked="True">
                 Cheese
+            </CheckBox>
+            <CheckBox Name="Tomato" IsChecked="True">
+                Tomato
+            </CheckBox>
+            <CheckBox Name="Lettuce" IsChecked="True">
+                Lettuce
+            </CheckBox>
+            <CheckBox Name="Mayo" IsChecked="True">
+                Mayo
             </CheckBox>
         </StackPanel>
     </Grid>
