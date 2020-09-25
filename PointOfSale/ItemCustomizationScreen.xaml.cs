@@ -41,8 +41,9 @@ namespace PointOfSale
         //public void CreateCheckBoxList(ObservableCollection<BoolString> menuLists)
         public void CreateCheckBoxList()
         {
-            //var menuLists = new List<MenuSelectionScreen>();
-            bool test = MenuSelectionScreen.MyItem.briar;
+            /*
+            var menuLists = new List<MenuSelectionScreen>();
+            //bool test = MenuSelectionScreen.MyItem.briar;
             //Console.WriteLine("test" + menuLists.Count);
             ObservableCollection<BoolString> listoftoppings = MenuSelectionScreen.MyItem.Listmenu;
 
@@ -65,6 +66,7 @@ namespace PointOfSale
             
 
             this.DataContext = this;
+            */
         }
 
         

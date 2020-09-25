@@ -17,15 +17,19 @@
                 Main Menu Selection
             </Button>
             
-            <Button Click ="SwitchToItemCustomization" Name="itemCustomizationButton">
+            <!--Button Click ="SwitchToItemCustomization" Name="itemCustomizationButton">
                 Add Food Item
-            </Button>
+            </-->
             <ListView Name ="itemsListView" Height="400" />
         </StackPanel>
         
         <Border x:Name="switchBorder" Grid.Column="0">
             <local:MenuSelectionScreen/>
+
+
+            <!--/local:MenuSelectionScreen-->
             <!-- does it matter what we put here???-->
+            
         </Border>
     </Grid>
 
