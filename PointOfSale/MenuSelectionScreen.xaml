@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="PointOfSale.MenuSelectionScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!--Buttons for Entrees -->
+        <Button Click="BriarheartBurger" Grid.Row="0" Name="briarheartBurgerButton">
+            Briarheart Burger
+        </Button>
+        <!--
+        <Button Click="DoubleDraugr" Grid.Row="1" Name="doubleDraugrButton">
+            Double Draugr
+        </Button>
+        <Button Click="ThalmorTriple" Grid.Row="2" Name="thalmorTripleButton">
+            Thalmor Triple
+        </Button>
+        <Button Click="SmokehouseSkeleton" Grid.Row="3" Name="smokehouseSkeletonButton">
+            Smokehouse Skeleton
+        </Button>
+        <Button Click="GardenOrcOmelette" Grid.Row="4" Name="gardenOrcOmeletteButton">
+            Garden Orc Omelette
+        </Button>
+        <Button Click="PhillyPoacher" Grid.Row="5" Name="phillyPoacherButton">
+            Philly Poacher
+        </Button>
+        <Button Click="ThugsTBone" Grid.Row="6" Name="thugsTBoneButton">
+            Thugs T-Bone
+        </Button>
+        Buttons for Drinks -->
+        
+        <Button Click="SailorsSoda" Grid.Row="0" Grid.Column="1" Name="sailorsSodaButton">
+            Sailor’s Soda
+        </Button>
+        <!--
+        <Button Click="MarkarthMilk" Grid.Row="1" Grid.Column="1" Name="markarthMilkButton">
+            Markarth Milk
+        </Button>
+        <Button Click="AretinoAppleJuice" Grid.Row="2" Grid.Column="1" Name="aretinoAppleJuiceButton">
+            Aretino Apple Juice
+        </Button>
+        <Button Click="CandlehearthCoffee" Grid.Row="3" Grid.Column="1" Name="candlehearthButton">
+            Candlehearth Coffee
+        </Button>
+        <Button Click="WarriorWater" Grid.Row="4" Grid.Column="1" Name="warriorWaterButton">
+            Warrior Water
+        </Button>
+        Buttons for Sides-->
+        
+        <Button Click="VokunSalad" Grid.Row="0" Grid.Column="2" Name="vokunSaladButton">
+            Vokun Salad
+        </Button>
+        <!--
+        <Button Click="FriedMiraak" Grid.Row="1" Grid.Column="2" Name="friedMiraakButton">
+            Fried Miraak
+        </Button>
+        <Button Click="MadOtarGrits" Grid.Row="2" Grid.Column="2" Name="madOtarGritsButton">
+            Mad Otar Grits
+        </Button>
+        <Button Click="DragonbornWaffleFries" Grid.Row="3" Grid.Column="2" Name="dragonbornWaffleFriesButton">
+            Dragonborn Waffle Fries
+        </Button> -->
+        
+    </Grid>
+    
+</UserControl>
