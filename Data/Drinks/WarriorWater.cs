@@ -102,7 +102,6 @@ namespace BleakwindBuffet.Data.Drinks
 
                 return instructions;
             }
-
         }
 
         /// <summary>

@@ -135,14 +135,14 @@ namespace PointOfSale
             FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = side });
         }
 
-        void resetbuttons()
+        void resetbuttons() //not needed unless we make a food item confirmation button before switching to customization
         {
             briarheartBurgerButton.IsEnabled = true;
             sailorsSodaButton.IsEnabled = true;
             vokunSaladButton.IsEnabled = true;
         }
 
-        void turnOffButtons()
+        void turnOffButtons() //not needed
         {
             briarheartBurgerButton.IsEnabled = false;
             sailorsSodaButton.IsEnabled = false;

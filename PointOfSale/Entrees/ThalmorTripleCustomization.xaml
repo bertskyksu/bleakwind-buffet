@@ -7,6 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel>
+            <CheckBox Name="Bun" IsChecked="True">
+                Bun
+            </CheckBox>
+            <CheckBox Name="Ketchup" IsChecked="True">
+                Ketchup
+            </CheckBox>
+            <CheckBox Name="Mustard" IsChecked="True">
+                Mustard
+            </CheckBox>
+            <CheckBox Name="Pickle" IsChecked="True">
+                Pickle
+            </CheckBox>
+            <CheckBox Name="Cheese" IsChecked="True">
+                Cheese
+            </CheckBox>
+            <CheckBox Name="Tomato" IsChecked="True">
+                Tomato
+            </CheckBox>
+            <CheckBox Name="Lettuce" IsChecked="True">
+                Lettuce
+            </CheckBox>
+            <CheckBox Name="Mayo" IsChecked="True">
+                Mayo
+            </CheckBox>
+            <CheckBox Name="Bacon" IsChecked="True">
+                Bacon
+            </CheckBox>
+            <CheckBox Name="Egg" IsChecked="True">
+                Egg
+            </CheckBox>
+        </StackPanel>
     </Grid>
 </UserControl>

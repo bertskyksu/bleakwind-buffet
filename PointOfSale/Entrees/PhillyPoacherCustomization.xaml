@@ -7,6 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <StackPanel>
+            <CheckBox Name="Sirloin" IsChecked="True">
+                Sirloin
+            </CheckBox>
+            <CheckBox Name="Onion" IsChecked="True">
+                Onion
+            </CheckBox>
+            <CheckBox Name="Roll" IsChecked="True">
+                Roll
+            </CheckBox>
             
+        </StackPanel>
     </Grid>
 </UserControl>

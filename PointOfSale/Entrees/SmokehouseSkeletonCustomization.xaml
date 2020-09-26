@@ -7,6 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel>
+            <CheckBox Name="Sausage" IsChecked="True">
+                Sausage
+            </CheckBox>
+            <CheckBox Name="Egg" IsChecked="True">
+                Egg
+            </CheckBox>
+            <CheckBox Name="HashBrowns" IsChecked="True">
+                HashBrowns
+            </CheckBox>
+            <CheckBox Name="Pancake" IsChecked="True">
+                Pancake
+            </CheckBox>
+
+        </StackPanel>
     </Grid>
 </UserControl>

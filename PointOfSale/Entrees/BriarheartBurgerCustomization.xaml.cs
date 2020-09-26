@@ -23,6 +23,9 @@ namespace PointOfSale.Entrees
             InitializeComponent();
         }
 
-
+        public override string ToString()
+        {
+            return "Briarheart Burger";
+        }
     }
 }

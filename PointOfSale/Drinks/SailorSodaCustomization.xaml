@@ -8,12 +8,25 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
+            <!--setting the Size of the Drink -->
+            <ComboBox Name ="SizeSelection" Text="Size" SelectedValue="Small">
+                <ComboBoxItem IsSelected="True">Small</ComboBoxItem>
+                <ComboBoxItem>Medium</ComboBoxItem>
+                <ComboBoxItem>Large</ComboBoxItem>
+            </ComboBox>
+            <!--setting the flavor of the soda -->
+            <ComboBox Name ="FlavorSelection" Text="Flavor" SelectedValue="Cherry">
+                <ComboBoxItem IsSelected="True">Cherry</ComboBoxItem>
+                <ComboBoxItem>Blackberry</ComboBoxItem>
+                <ComboBoxItem>Grapefruit</ComboBoxItem>
+                <ComboBoxItem>Lemon</ComboBoxItem>
+                <ComboBoxItem>Peach</ComboBoxItem>
+                <ComboBoxItem>Watermelon</ComboBoxItem>
+            </ComboBox>
             <CheckBox Name="Ice" IsChecked="True">
                 Ice
             </CheckBox>
-            <CheckBox Name="Flavor" IsChecked="True">
-                Flavor
-            </CheckBox>
+            
         </StackPanel>
     </Grid>
 </UserControl>

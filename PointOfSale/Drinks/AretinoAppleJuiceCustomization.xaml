@@ -7,6 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <StackPanel>
+            <ComboBox Name ="SizeSelection" Text="Size" SelectedValue="Small">
+                <ComboBoxItem IsSelected="True">Small</ComboBoxItem>
+                <ComboBoxItem>Medium</ComboBoxItem>
+                <ComboBoxItem>Large</ComboBoxItem>
+            </ComboBox>
+            <CheckBox Name="Ice" IsChecked="True">
+                Ice
+            </CheckBox>
             
+        </StackPanel>
     </Grid>
 </UserControl>

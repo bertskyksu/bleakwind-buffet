@@ -36,7 +36,8 @@ namespace PointOfSale
         /// 
         //ItemCustomizationScreen itemCustom = new ItemCustomizationScreen();
         MenuSelectionScreen menu = new MenuSelectionScreen();
-        List<ItemCustomizationScreen> Custom = new List<ItemCustomizationScreen>();
+ 
+
         //List<ItemCustomizationScreen> FinalOrder = new List<ItemCustomizationScreen>();
 
         
@@ -56,6 +57,11 @@ namespace PointOfSale
         }
 
         
+        /// <summary>
+        /// this class 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OrderClick(object sender, MenuSelectionEvent e)
         {
             //ItemCustomizationScreen footitem = new ItemCustomizationScreen();
@@ -65,42 +71,56 @@ namespace PointOfSale
             {
                 BriarheartBurgerCustomization fooditem = new BriarheartBurgerCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+
+                //now how can we use the information from Custimization...
+                //to make changes to e.fooditem which is the new BriarheartBurger()
+                //final goal ->   use BriarheartBurger.SpecialInstructions
+
+                //we need to find a better way of capturing fooditem's customization information
+                //FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
             {
                 DoubleDraugrCustomization fooditem = new DoubleDraugrCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is ThalmorTriple) // this will check if an object is a certain type
             {
                 ThalmorTripleCustomization fooditem = new ThalmorTripleCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is SmokehouseSkeleton) // this will check if an object is a certain type
             {
                 SmokehouseSkeletonCustomization fooditem = new SmokehouseSkeletonCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is GardenOrcOmelette) // this will check if an object is a certain type
             {
                 GardenOrcOmeletteCustomization fooditem = new GardenOrcOmeletteCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is PhillyPoacher) // this will check if an object is a certain type
             {
                 PhillyPoacherCustomization fooditem = new PhillyPoacherCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             if (e.fooditem is ThugsTBone) // this will check if an object is a certain type
             {
                 ThugsTBoneCustomization fooditem = new ThugsTBoneCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
 
@@ -109,26 +129,31 @@ namespace PointOfSale
             {
                 SailorSodaCustomization fooditem = new SailorSodaCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is MarkarthMilk)
             {
                 MarkarthMilkCustomization fooditem = new MarkarthMilkCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is AretinoAppleJuice)
             {
                 AretinoAppleJuiceCustomization fooditem = new AretinoAppleJuiceCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is CandlehearthCoffee)
             {
                 CandlehearthCoffeeCustomization fooditem = new CandlehearthCoffeeCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is WarriorWater)
             {
                 WarriorWaterCustomization fooditem = new WarriorWaterCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
 
             //sides:
@@ -136,42 +161,41 @@ namespace PointOfSale
             {
                 VokunSaladCustomization fooditem = new VokunSaladCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is FriedMiraak)
             {
                 FriedMiraakCustomization fooditem = new FriedMiraakCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is MadOtarGrits)
             {
                 MadOtarGritsCustomization fooditem = new MadOtarGritsCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
             if (e.fooditem is DragonbornWaffleFries)
             {
                 DragonbornWaffleFriesCustomization fooditem = new DragonbornWaffleFriesCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
+                FinalOrderListView.Items.Add("Briarheart Burger");
             }
-
-            //switchBorder.Child = fooditem;
         }
-        //how to show it now? in order component
 
-        //now make evetn happend
         
 
 
         /// <summary>
-        /// selecting a food item
+        /// This button event will take the user back to the main menu to select another food item
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SwitchToMenuSelection(object sender, RoutedEventArgs e) //EventArgs e just carrries information
+        void SwitchToMenuSelection(object sender, RoutedEventArgs e) //click events use RoutedEventArgs e
         {
-            switchBorder.Child = menu;
-            //most contorls cant only have one child
+            switchBorder.Child = menu; //most controls can only have one child
         }
-        //click events use RoutedEventArgs e
+  
 
         /// <summary>
         /// add selected food item
@@ -180,32 +204,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         void SwitchToItemCustomization(object sender, RoutedEventArgs e) //EventArgs e just carrries information
         {
-            var newCustom = new ItemCustomizationScreen();
-            //switchBorder.Child = itemCustom[];
-            //currentListIndex = listOfItemCustom.Count;
-            //listOfItemCustom.Add(newCustom);
-            switchBorder.Child = newCustom;
-            
-            
-            //most controls can only have one child
-            //var newFood = new ItemCustomizationScreen
-            //foreach()
-            //itemsListView.Items.Add(newCustom); // i meant to have this to go back and edit later
-
-            //we should have some list childs for going back and editing food items?
+            //This method will be used later for editing an existing order
         }
 
-
-        /*
-        void EditItemCustomization(object sender, RoutedEventArgs e) //EventArgs e just carrries information
-        {
-            //add this later to keep track of a Item Customization from the. maybe use some kind of id for the 
-        }
-
-        void SwitchToBriarheartBurgerCustomization(object sender, RoutedEventArgs e)
-        {
-
-        }
-        */
     }
 }
