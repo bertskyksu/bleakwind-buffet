@@ -12,6 +12,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
 {
     public class MenuTests
     {
+        
 
         [Fact]
         public void ReturnAllEntrees()

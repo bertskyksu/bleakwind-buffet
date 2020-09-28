@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Albert Winemiller
+* Class name: ThugsTBoneCustomization.xaml.cs
+* Purpose: This class represents the customization options on Thugs T-Bone for a GUI
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +26,16 @@ namespace PointOfSale.Entrees
         public ThugsTBoneCustomization()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// This method uses the overrides the toString method to output the 
+        /// desired food item description from the menu page
+        /// </summary>
+        /// <returns>a string of the food name</returns>
+        public override string ToString()
+        {
+            return "Thugs T-Bone";
         }
     }
 }

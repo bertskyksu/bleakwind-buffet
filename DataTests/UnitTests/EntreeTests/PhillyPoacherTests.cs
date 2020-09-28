@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -15,6 +16,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     {
         PhillyPoacher entree = new PhillyPoacher();
 
+        [Fact]
+        public void CheckIsAssignableFromIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(entree);
+        }
         [Fact]
         public void ShouldBeADrink()
         {
@@ -90,7 +96,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeSirloin) Assert.Contains("Hold sirloin", entree.SpecialInstructions);
             if (!includeOnion) Assert.Contains("Hold onions", entree.SpecialInstructions);
             if (!includeRoll) Assert.Contains("Hold roll", entree.SpecialInstructions);
-
+            else Assert.Empty(entree.SpecialInstructions);
         }
 
         [Fact]

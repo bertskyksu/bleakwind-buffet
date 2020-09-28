@@ -14,12 +14,21 @@
                 <ComboBoxItem>Large</ComboBoxItem>
             </ComboBox>
             <CheckBox Name="Ice" IsChecked="False">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Ice
             </CheckBox>
             <CheckBox Name="Cream" IsChecked="False">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Cream
             </CheckBox>
             <CheckBox Name="Decaf" IsChecked="False">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Decaf
             </CheckBox>
 

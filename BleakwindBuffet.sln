@@ -10,9 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{996416B9-D455-4E9C-9D0F-D1924B8FCE4B}"
 	ProjectSection(SolutionItems) = preProject
 		..\data-milestone-3-uml.pdf = ..\data-milestone-3-uml.pdf
+		..\..\PointOfSale-milestone-1-uml.pdf = ..\..\PointOfSale-milestone-1-uml.pdf
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{136B1142-EA52-4CA4-8DB5-E1EC73768531}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{136B1142-EA52-4CA4-8DB5-E1EC73768531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

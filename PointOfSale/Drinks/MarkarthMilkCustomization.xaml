@@ -14,6 +14,9 @@
                 <ComboBoxItem>Large</ComboBoxItem>
             </ComboBox>
             <CheckBox Name="Ice" IsChecked="False">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Ice
             </CheckBox>
 

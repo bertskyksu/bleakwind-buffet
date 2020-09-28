@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Albert Winemiller
+* Class name: Menu.cs
+* Purpose: This class represents the Entree Thugs T-Bone
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Menu;
@@ -36,10 +41,10 @@ namespace BleakwindBuffet.Data.Menu
         /// <returns> IEnumerable of Sides </returns>
         public static IEnumerable<IOrderItem> Sides()
         {
-            List<IOrderItem> sides = new List<IOrderItem>() { new DragonbornWaffleFries(), new FriedMiraak(), 
-                                                            new MadOtarGrits(), new VokunSalad() };
-
-            foreach(Size size in Enum.GetValues(typeof(Size)))
+            //List<IOrderItem> sides = new List<IOrderItem>() { new DragonbornWaffleFries(), new FriedMiraak(), 
+            //                                              new MadOtarGrits(), new VokunSalad() };
+            List<IOrderItem> sides = new List<IOrderItem>();
+            foreach (Size size in Enum.GetValues(typeof(Size)))
             {
                     
                 DragonbornWaffleFries itemFries = new DragonbornWaffleFries();

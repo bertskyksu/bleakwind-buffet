@@ -9,12 +9,19 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class CandlehearthCoffeeTests
     {
         CandlehearthCoffee drink = new CandlehearthCoffee();
+
+        [Fact]
+        public void CheckIsAssignableFromIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(drink);
+        }
         [Fact]
         public void ShouldBeADrink()
         {

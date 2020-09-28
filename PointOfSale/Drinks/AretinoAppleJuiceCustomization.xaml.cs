@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Albert Winemiller
+* Class name: AretinoAppleJuiceCustomization.xaml.cs
+* Purpose: This class represents the customization options on Aretino Apple Juice for a GUI
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +26,15 @@ namespace PointOfSale.Drinks
         public AretinoAppleJuiceCustomization()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// This method uses the overrides the toString method to output the 
+        /// desired food item description from the menu page
+        /// </summary>
+        /// <returns>a string of the food name</returns>
+        public override string ToString()
+        {
+            return "Aretino Apple Juice";
         }
     }
 }

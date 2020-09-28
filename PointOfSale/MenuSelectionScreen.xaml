@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,61 +22,68 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <!--Header Label -->
+        <Label Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" FontSize="30">Entrees</Label>
+
+        <Label Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" FontSize="30">Drinks</Label>
+        <Label Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" FontSize="30">Sides</Label>
+
         <!--Buttons for Entrees -->
-        <Button Click="BriarheartBurgerSelection" Grid.Row="0" Name="briarheartBurgerButton">
+        <Button Click="BriarheartBurgerSelection" Grid.Row="1" Name="briarheartBurgerButton">
             Briarheart Burger
         </Button>
-        <Button Click="DoubleDraugrSelection" Grid.Row="1" Name="doubleDraugrButton">
+        <Button Click="DoubleDraugrSelection" Grid.Row="2" Name="doubleDraugrButton">
             Double Draugr
         </Button>
-        <Button Click="ThalmorTripleSelection" Grid.Row="2" Name="thalmorTripleButton">
+        <Button Click="ThalmorTripleSelection" Grid.Row="3" Name="thalmorTripleButton">
             Thalmor Triple
         </Button>
-        <Button Click="SmokehouseSkeletonSelection" Grid.Row="3" Name="smokehouseSkeletonButton">
+        <Button Click="SmokehouseSkeletonSelection" Grid.Row="4" Name="smokehouseSkeletonButton">
             Smokehouse Skeleton
         </Button>
-        <Button Click="GardenOrcOmeletteSelection" Grid.Row="4" Name="gardenOrcOmeletteButton">
+        <Button Click="GardenOrcOmeletteSelection" Grid.Row="5" Name="gardenOrcOmeletteButton">
             Garden Orc Omelette
         </Button>
-        <Button Click="PhillyPoacherSelection" Grid.Row="5" Name="phillyPoacherButton">
+        <Button Click="PhillyPoacherSelection" Grid.Row="6" Name="phillyPoacherButton">
             Philly Poacher
         </Button>
-        <Button Click="ThugsTBoneSelection" Grid.Row="6" Name="thugsTBoneButton">
+        <Button Click="ThugsTBoneSelection" Grid.Row="7" Name="thugsTBoneButton">
             Thugs T-Bone
         </Button>
         
         <!--Buttons for Drinks -->
-        <Button Click="SailorsSodaSelection" Grid.Row="0" Grid.Column="1" Name="sailorsSodaButton">
+        <Button Click="SailorsSodaSelection" Grid.Row="1" Grid.Column="1" Name="sailorsSodaButton">
             Sailor’s Soda
         </Button>
-        <Button Click="MarkarthMilkSelection" Grid.Row="1" Grid.Column="1" Name="markarthMilkButton">
+        <Button Click="MarkarthMilkSelection" Grid.Row="2" Grid.Column="1" Name="markarthMilkButton">
             Markarth Milk
         </Button>
-        <Button Click="AretinoAppleJuiceSelection" Grid.Row="2" Grid.Column="1" Name="aretinoAppleJuiceButton">
+        <Button Click="AretinoAppleJuiceSelection" Grid.Row="3" Grid.Column="1" Name="aretinoAppleJuiceButton">
             Aretino Apple Juice
         </Button>
-        <Button Click="CandlehearthCoffeeSelection" Grid.Row="3" Grid.Column="1" Name="candlehearthButton">
+        <Button Click="CandlehearthCoffeeSelection" Grid.Row="4" Grid.Column="1" Name="candlehearthButton">
             Candlehearth Coffee
         </Button>
-        <Button Click="WarriorWaterSelection" Grid.Row="4" Grid.Column="1" Name="warriorWaterButton">
+        <Button Click="WarriorWaterSelection" Grid.Row="5" Grid.Column="1" Name="warriorWaterButton">
             Warrior Water
         </Button>
         
         <!--Buttons for Sides-->
-        <Button Click="VokunSaladSelection" Grid.Row="0" Grid.Column="2" Name="vokunSaladButton">
+        <Button Click="VokunSaladSelection" Grid.Row="1" Grid.Column="2" Name="vokunSaladButton">
             Vokun Salad
         </Button>
-        <Button Click="FriedMiraakSelection" Grid.Row="1" Grid.Column="2" Name="friedMiraakButton">
+        <Button Click="FriedMiraakSelection" Grid.Row="2" Grid.Column="2" Name="friedMiraakButton">
             Fried Miraak
         </Button>
-        <Button Click="MadOtarGritsSelection" Grid.Row="2" Grid.Column="2" Name="madOtarGritsButton">
+        <Button Click="MadOtarGritsSelection" Grid.Row="3" Grid.Column="2" Name="madOtarGritsButton">
             Mad Otar Grits
         </Button>
-        <Button Click="DragonbornWaffleFriesSelection" Grid.Row="3" Grid.Column="2" Name="dragonbornWaffleFriesButton">
+        <Button Click="DragonbornWaffleFriesSelection" Grid.Row="4" Grid.Column="2" Name="dragonbornWaffleFriesButton">
             Dragonborn Waffle Fries
         </Button>
-
+        
     </Grid>
     
 </UserControl>

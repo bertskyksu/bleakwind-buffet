@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -20,6 +21,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldBeADrink()
         {
             Assert.IsAssignableFrom<Entree>(entree);
+        }
+
+        [Fact]
+        public void CheckIsAssignableFromIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(entree);
         }
         [Fact]
         public void ShouldIncludeBunByDefault()
@@ -125,7 +132,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             if (!includeKetchup) Assert.Contains("Hold ketchup", entree.SpecialInstructions);
             if (!includeMustard) Assert.Contains("Hold mustard", entree.SpecialInstructions);
             if (!includePickle) Assert.Contains("Hold pickle", entree.SpecialInstructions);
-            else if (!includeCheese) Assert.Contains("Hold cheese", entree.SpecialInstructions);
+            if (!includeCheese) Assert.Contains("Hold cheese", entree.SpecialInstructions);
 
             else Assert.Empty(entree.SpecialInstructions);
         }

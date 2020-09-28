@@ -9,6 +9,8 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Interface;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -16,6 +18,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     {
         MadOtarGrits side = new MadOtarGrits();
 
+        [Fact]
+        public void CheckIsAssignableFromIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(side);
+        }
         [Fact]
         public void ShouldBeADrink()
         {

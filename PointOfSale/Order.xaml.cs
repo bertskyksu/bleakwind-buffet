@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+* Author: Albert Winemiller
+* Class name: Order.xaml.cs
+* Purpose: This class represents the GUI interface that controls when different screens will be shown.
+*/
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using PointOfSale.Drinks;
@@ -25,7 +30,13 @@ namespace PointOfSale
     public partial class Order : UserControl
     {
 
+        //ItemCustomizationScreen itemCustom = new ItemCustomizationScreen();
+        MenuSelectionScreen menu = new MenuSelectionScreen();
 
+
+        //List<ItemCustomizationScreen> FinalOrder = new List<ItemCustomizationScreen>();
+
+        //int currentListIndex = 0;
 
         /// <summary>
         /// This component will oversee all the other components: menu & item selection.
@@ -33,18 +44,6 @@ namespace PointOfSale
         /// 1. Completing the order building process and starting the payment process
         /// 2. Canceling the in-progress order, for those occasions where the customer changes their mind.
         /// </summary>
-        /// 
-        //ItemCustomizationScreen itemCustom = new ItemCustomizationScreen();
-        MenuSelectionScreen menu = new MenuSelectionScreen();
- 
-
-        //List<ItemCustomizationScreen> FinalOrder = new List<ItemCustomizationScreen>();
-
-        
-
-
-        //int currentListIndex = 0;
-
         public Order()
         {
             InitializeComponent();
@@ -52,8 +51,8 @@ namespace PointOfSale
             switchBorder.Child = menu; //the default starting screen is menu selection
 
             //add event handler click event:
-            menu.FoodSelected += OrderClick;
-        //attach an event handler
+            menu.FoodSelected += FoodButtonClickEvent;
+            //attach an event handler
         }
 
         
@@ -62,7 +61,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OrderClick(object sender, MenuSelectionEvent e)
+        public void FoodButtonClickEvent(object sender, MenuSelectionEvent e)
         {
             //ItemCustomizationScreen footitem = new ItemCustomizationScreen();
             
@@ -129,31 +128,31 @@ namespace PointOfSale
             {
                 SailorSodaCustomization fooditem = new SailorSodaCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is MarkarthMilk)
             {
                 MarkarthMilkCustomization fooditem = new MarkarthMilkCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is AretinoAppleJuice)
             {
                 AretinoAppleJuiceCustomization fooditem = new AretinoAppleJuiceCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is CandlehearthCoffee)
             {
                 CandlehearthCoffeeCustomization fooditem = new CandlehearthCoffeeCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is WarriorWater)
             {
                 WarriorWaterCustomization fooditem = new WarriorWaterCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
 
             //sides:
@@ -161,25 +160,25 @@ namespace PointOfSale
             {
                 VokunSaladCustomization fooditem = new VokunSaladCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is FriedMiraak)
             {
                 FriedMiraakCustomization fooditem = new FriedMiraakCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is MadOtarGrits)
             {
                 MadOtarGritsCustomization fooditem = new MadOtarGritsCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
             if (e.fooditem is DragonbornWaffleFries)
             {
                 DragonbornWaffleFriesCustomization fooditem = new DragonbornWaffleFriesCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add("Briarheart Burger");
+                FinalOrderListView.Items.Add(fooditem.ToString());
             }
         }
 
@@ -191,7 +190,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SwitchToMenuSelection(object sender, RoutedEventArgs e) //click events use RoutedEventArgs e
+        public void SwitchToMenuSelection(object sender, RoutedEventArgs e) //click events use RoutedEventArgs e
         {
             switchBorder.Child = menu; //most controls can only have one child
         }
@@ -202,7 +201,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SwitchToItemCustomization(object sender, RoutedEventArgs e) //EventArgs e just carrries information
+        public void SwitchToItemCustomization(object sender, RoutedEventArgs e) //EventArgs e just carrries information
         {
             //This method will be used later for editing an existing order
         }

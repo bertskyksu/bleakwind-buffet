@@ -9,15 +9,27 @@
     <Grid>
         <StackPanel>
             <CheckBox Name="Broccoli" IsChecked="True">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Broccoli
             </CheckBox>
             <CheckBox Name="Mushrooms" IsChecked="True">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Mushrooms
             </CheckBox>
             <CheckBox Name="Tomato" IsChecked="True">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Tomato
             </CheckBox>
             <CheckBox Name="Cheddar" IsChecked="True">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="3" ScaleY="3" />
+                </CheckBox.LayoutTransform>
                 Cheddar
             </CheckBox>
         </StackPanel>
