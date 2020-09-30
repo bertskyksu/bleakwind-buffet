@@ -19,6 +19,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         MadOtarGrits side = new MadOtarGrits();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
+        {
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Small);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(side);

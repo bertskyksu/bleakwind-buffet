@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +15,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Garden Orc Omelette and its customer order characteristics
     /// </summary>
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
@@ -27,25 +49,107 @@ namespace BleakwindBuffet.Data.Entrees
         public override uint Calories => 404;
 
         /// <summary>
-        /// This sets the default option of broccoli in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool broccoli = true;
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool mushrooms = true;
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool tomato = true;
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool cheddar = true;
+
+
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Broccoli is on or off the food item</value>
-        public bool Broccoli { get; set; } = true;
+        public bool Broccoli
+        {
+            get
+            {
+                return this.broccoli;
+            }
+            set
+            {
+                if (value != this.broccoli)
+                {
+                    this.broccoli = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         /// <summary>
-        /// This sets the default option of mushrooms in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Mushrooms is on or off the food item</value>
-        public bool Mushrooms { get; set; } = true;
+        public bool Mushrooms
+        {
+            get
+            {
+                return this.mushrooms;
+            }
+            set
+            {
+                if (value != this.mushrooms)
+                {
+                    this.mushrooms = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         /// <summary>
-        /// This sets the default option of Tomatos in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Tomato is on or off the food item</value>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato
+        {
+            get
+            {
+                return this.tomato;
+            }
+            set
+            {
+                if (value != this.tomato)
+                {
+                    this.tomato = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         /// <summary>
-        /// This sets the default option of Cheddar cheese in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Cheddar is on or off the food item</value>
-        public bool Cheddar { get; set; } = true;
+        public bool Cheddar
+        {
+            get
+            {
+                return this.cheddar;
+            }
+            set
+            {
+                if (value != this.cheddar)
+                {
+                    this.cheddar = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list

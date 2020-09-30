@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         DragonbornWaffleFries side = new DragonbornWaffleFries();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
+        {
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Small);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(side);

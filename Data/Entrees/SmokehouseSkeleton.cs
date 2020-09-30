@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +15,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Smokehouse Skeleton and its customer order characteristics
     /// </summary>
-    public class SmokehouseSkeleton : Entree
+    public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
@@ -25,26 +47,108 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <value> The calories of the food item</value>
         public override uint Calories => 602;
+
         /// <summary>
-        /// This sets the default option of Sausage links in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the SausageLink is onor off the food item</value>
-        public bool SausageLink { get; set; } = true;
+        private bool sausageLink = true;
         /// <summary>
-        /// This sets the default option of eggs in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the Egg is onor off the food item</value>
-        public bool Egg { get; set; } = true;
+        private bool egg = true;
         /// <summary>
-        /// This sets the default option of hash browns in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the HashBrowns is onor off the food item</value>
-        public bool HashBrowns { get; set; } = true;
+        private bool hashBrowns = true;
         /// <summary>
-        /// This sets the default option of pancakes in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the Pancake is onor off the food item</value>
-        public bool Pancake { get; set; } = true;
+        private bool pancake = true;
+
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the SausageLink is on or off the food item</value>
+        public bool SausageLink
+        {
+            get
+            {
+                return this.sausageLink;
+            }
+            set
+            {
+                if (value != this.sausageLink)
+                {
+                    this.sausageLink = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the Egg is on or off the food item</value>>
+        public bool Egg
+        {
+            get
+            {
+                return this.egg;
+            }
+            set
+            {
+                if (value != this.egg)
+                {
+                    this.egg = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the HashBrowns is on or off the food item</value>
+        public bool HashBrowns
+        {
+            get
+            {
+                return this.hashBrowns;
+            }
+            set
+            {
+                if (value != this.hashBrowns)
+                {
+                    this.hashBrowns = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the Pancake is on or off the food item</value>
+        public bool Pancake
+        {
+            get
+            {
+                return this.pancake;
+            }
+            set
+            {
+                if (value != this.pancake)
+                {
+                    this.pancake = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list

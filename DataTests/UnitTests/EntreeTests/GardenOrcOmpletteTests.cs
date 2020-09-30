@@ -17,6 +17,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         GardenOrcOmelette entree = new GardenOrcOmelette();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodCustomizationChanges()
+        {
+            Assert.PropertyChanged(entree, "Broccoli", () => entree.Broccoli = false);
+            Assert.PropertyChanged(entree, "Mushrooms", () => entree.Mushrooms = false);
+            Assert.PropertyChanged(entree, "Tomato", () => entree.Tomato = false);
+            Assert.PropertyChanged(entree, "Cheddar", () => entree.Cheddar = false);
+            
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(entree);

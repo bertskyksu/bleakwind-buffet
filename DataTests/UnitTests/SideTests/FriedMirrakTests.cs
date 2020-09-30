@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         FriedMiraak side = new FriedMiraak();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
+        {
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Small);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(side);

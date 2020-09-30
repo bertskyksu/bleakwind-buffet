@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         VokunSalad side = new VokunSalad();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
+        {
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Size", () => side.Size = Size.Small);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(side);

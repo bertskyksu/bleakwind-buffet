@@ -20,6 +20,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         SailorSoda drink = new SailorSoda();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
+        {
+            Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Medium);
+            Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Large);
+            Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Small);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(drink);

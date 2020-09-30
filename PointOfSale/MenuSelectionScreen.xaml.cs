@@ -30,6 +30,10 @@ namespace PointOfSale
     {
         
 
+        /// <summary>
+        /// a event handler to know what food item was selected on the menu from a button push.
+        /// This Event will be listened from the Order.xaml.cs
+        /// </summary>
         public event EventHandler<MenuSelectionEvent> FoodSelected;
         
         /// <summary>

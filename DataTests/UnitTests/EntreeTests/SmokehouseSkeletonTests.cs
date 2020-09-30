@@ -17,6 +17,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         SmokehouseSkeleton entree = new SmokehouseSkeleton();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodCustomizationChanges()
+        {
+            Assert.PropertyChanged(entree, "SausageLink", () => entree.SausageLink = false);
+            Assert.PropertyChanged(entree, "Egg", () => entree.Egg = false);
+            Assert.PropertyChanged(entree, "HashBrowns", () => entree.HashBrowns = false);
+            Assert.PropertyChanged(entree, "Pancake", () => entree.Pancake = false);
+
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(entree);

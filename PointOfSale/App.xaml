@@ -4,6 +4,39 @@
              xmlns:local="clr-namespace:PointOfSale"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- if we put style in app.xaml it can be accessed from anywhere in project -->
+        <Style TargetType="StackPanel"/>
+        <Style TargetType="Button"/>
+        <Style TargetType="CheckBox"/>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MaxDropDownHeight" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+        
+        <Style BasedOn="{StaticResource {x:Type ComboBox}}"
+           TargetType="ComboBox"
+           x:Key="SizeStyle">
+        </Style>
+
+        <Style BasedOn="{StaticResource {x:Type Button}}"
+           TargetType="Button"
+           x:Key="ConfirmButtonStyle">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="165"/>
+        </Style>
+
+        <Style BasedOn="{StaticResource {x:Type CheckBox}}"
+           TargetType="CheckBox"
+           x:Key="CustomizationOptionsStyle">
+            <!-- still working on this-->
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="165"/>
+        </Style>
+
     </Application.Resources>
 </Application>

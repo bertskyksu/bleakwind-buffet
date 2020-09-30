@@ -20,11 +20,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ProfileShouldNotifyOfFoodCustomizationChanges()
         {
+            Assert.PropertyChanged(entree, "Bun", () => entree.Bun = false);
             Assert.PropertyChanged(entree, "Ketchup", () => entree.Ketchup = false);
+            Assert.PropertyChanged(entree, "Mustard", () => entree.Mustard = false);
+            Assert.PropertyChanged(entree, "Pickle", () => entree.Pickle = false);
+            Assert.PropertyChanged(entree, "Cheese", () => entree.Cheese = false);
         }
 
         [Fact]
-        public void ShouldBeADrink()
+        public void ShouldBeAEntree()
         {
             Assert.IsAssignableFrom<Entree>(entree);
         }

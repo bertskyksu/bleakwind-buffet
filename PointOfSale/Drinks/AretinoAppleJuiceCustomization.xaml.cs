@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Enums;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.Drinks
 {
@@ -26,7 +28,10 @@ namespace PointOfSale.Drinks
         public AretinoAppleJuiceCustomization()
         {
             InitializeComponent();
+            SizeEnum.ItemsSource = Enum.GetValues(typeof(Size)); // this avoids messy xaml code to get enum.Size
         }
+        
+
         /// <summary>
         /// This method uses the overrides the toString method to output the 
         /// desired food item description from the menu page

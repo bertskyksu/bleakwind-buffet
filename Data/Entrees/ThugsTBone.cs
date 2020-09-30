@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +15,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Thugs T-Bone
     /// </summary>
-    public class ThugsTBone : Entree
+    public class ThugsTBone : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>

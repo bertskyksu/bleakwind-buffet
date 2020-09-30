@@ -52,7 +52,7 @@ namespace PointOfSale
             switchBorder.Child = menu; //the default starting screen is menu selection
 
             //add event handler click event:
-            menu.FoodSelected += FoodButtonClickEvent;
+            menu.FoodSelected += FoodButtonClickEvent; //attach eventhandler from MenuSelectionScreen -> FoodButtonClickEvent
             //attach an event handler
         }
 
@@ -61,134 +61,131 @@ namespace PointOfSale
         /// this class 
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">represents a food object passed from FoodSelected event handler</param>
         public void FoodButtonClickEvent(object sender, MenuSelectionEvent e)
         {
-            //ItemCustomizationScreen footitem = new ItemCustomizationScreen();
-            
+            //now how can we use the information from Custimization...
+            //to make changes to e.fooditem which is the new BriarheartBurger()
+            //final goal ->   use BriarheartBurger.SpecialInstructions
+
+            //we need to find a better way of capturing fooditem's customization information
+            //FinalOrderListView.Items.Add("Briarheart Burger");
+
             //entrees
-            if(e.fooditem is BriarheartBurger) // this will check if an object is a certain type
+            if (e.fooditem is BriarheartBurger) // this will check if an object is a certain type
             {
                 BriarheartBurgerCustomization fooditem = new BriarheartBurgerCustomization();
-                
-                switchBorder.Child = fooditem; //add burger customization to the screen
-
-                //DataContext = fooditem;
+                switchBorder.Child = fooditem; //add burger customization to the current screen
                 fooditem.DataContext = e.fooditem; //allows the DataContext of the XAML variables to access BriarheartBurger
-
-                finalOrder.Add(e.fooditem); //add food item to the list of IOrderItem
-                
             }
 
-            if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
+            else if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
             {
-                //now how can we use the information from Custimization...
-                //to make changes to e.fooditem which is the new BriarheartBurger()
-                //final goal ->   use BriarheartBurger.SpecialInstructions
-
-                //we need to find a better way of capturing fooditem's customization information
-                //FinalOrderListView.Items.Add("Briarheart Burger");
                 DoubleDraugrCustomization fooditem = new DoubleDraugrCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
-            if (e.fooditem is ThalmorTriple) // this will check if an object is a certain type
+            else if(e.fooditem is ThalmorTriple) // this will check if an object is a certain type
             {
                 ThalmorTripleCustomization fooditem = new ThalmorTripleCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
-            if (e.fooditem is SmokehouseSkeleton) // this will check if an object is a certain type
+            else if(e.fooditem is SmokehouseSkeleton) // this will check if an object is a certain type
             {
                 SmokehouseSkeletonCustomization fooditem = new SmokehouseSkeletonCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
-            if (e.fooditem is GardenOrcOmelette) // this will check if an object is a certain type
+            else if(e.fooditem is GardenOrcOmelette) // this will check if an object is a certain type
             {
                 GardenOrcOmeletteCustomization fooditem = new GardenOrcOmeletteCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
-            if (e.fooditem is PhillyPoacher) // this will check if an object is a certain type
+            else if(e.fooditem is PhillyPoacher) // this will check if an object is a certain type
             {
                 PhillyPoacherCustomization fooditem = new PhillyPoacherCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
-            if (e.fooditem is ThugsTBone) // this will check if an object is a certain type
+            else if(e.fooditem is ThugsTBone) // this will check if an object is a certain type
             {
                 ThugsTBoneCustomization fooditem = new ThugsTBoneCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
 
             //drinks
-            if (e.fooditem is SailorSoda)
+            else if(e.fooditem is SailorSoda)
             {
                 SailorSodaCustomization fooditem = new SailorSodaCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is MarkarthMilk)
+            else if(e.fooditem is MarkarthMilk)
             {
                 MarkarthMilkCustomization fooditem = new MarkarthMilkCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is AretinoAppleJuice)
+            else if(e.fooditem is AretinoAppleJuice)
             {
                 AretinoAppleJuiceCustomization fooditem = new AretinoAppleJuiceCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is CandlehearthCoffee)
+            else if(e.fooditem is CandlehearthCoffee)
             {
                 CandlehearthCoffeeCustomization fooditem = new CandlehearthCoffeeCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is WarriorWater)
+            else if(e.fooditem is WarriorWater)
             {
                 WarriorWaterCustomization fooditem = new WarriorWaterCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
             //sides:
-            if (e.fooditem is VokunSalad)
+            else if(e.fooditem is VokunSalad)
             {
                 VokunSaladCustomization fooditem = new VokunSaladCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is FriedMiraak)
+            else if(e.fooditem is FriedMiraak)
             {
                 FriedMiraakCustomization fooditem = new FriedMiraakCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem; 
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is MadOtarGrits)
+            else if(e.fooditem is MadOtarGrits)
             {
                 MadOtarGritsCustomization fooditem = new MadOtarGritsCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
-            if (e.fooditem is DragonbornWaffleFries)
+            else if(e.fooditem is DragonbornWaffleFries)
             {
                 DragonbornWaffleFriesCustomization fooditem = new DragonbornWaffleFriesCustomization();
-                switchBorder.Child = fooditem; //add burger customization to the screen
-                FinalOrderListView.Items.Add(fooditem.ToString());
+                switchBorder.Child = fooditem;
+                fooditem.DataContext = e.fooditem;
             }
 
+            
+            finalOrder.Add(e.fooditem); //add food item to the list of IOrderItem
+
+
             //double checking what gets put in the list
-            foreach(IOrderItem food in finalOrder)
+            foreach (IOrderItem food in finalOrder) //for debugging
             {
                 List<string> foodlist = food.SpecialInstructions;
                 foreach(string s in foodlist)

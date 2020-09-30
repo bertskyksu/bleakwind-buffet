@@ -17,6 +17,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         ThugsTBone entree = new ThugsTBone();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodCustomizationChanges()
+        {
+            //none
+            
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(entree);

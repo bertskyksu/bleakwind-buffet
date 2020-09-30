@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// This will Notify that a property for this food item has changed and invoke the 
         /// </summary>
         /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
         /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
@@ -38,24 +38,51 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
-        /// Sets the inital default price of the food item
+        /// Sets the inital default price of the food item. This stays constant for an entree
         /// </summary>
         /// <value> The price of the food item</value>
         public override double Price => 6.32;
 
         /// <summary>
-        /// Sets the inital default calories of the food item
+        /// Sets the inital default calories of the food item. This stays constant for an entree
         /// </summary>
         /// <value> The calories of the food item</value>
         public override uint Calories => 743;
 
-        //this format makes the code shorter since we only need to declare the getter/setter on one line
-
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
         private bool bun = true;
         /// <summary>
-        /// This sets the default option of Buns in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the bun is onor off the food item</value>
+        private bool ketchup = true;
+
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool mustard = true;
+
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool pickle = true;
+
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
+        /// </summary>
+        private bool cheese = true;
+
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the bun is on or off the food item</value>
         public bool Bun
         {
             get
@@ -73,12 +100,8 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
-        /// private value required for this NotifyPropertyChanged
-        /// </summary>
-        private bool ketchup = true;
-        
-        /// <summary>
-        /// This sets the default option of ketchup in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Ketchup is on or off the food item</value>
         public bool Ketchup
@@ -96,21 +119,69 @@ namespace BleakwindBuffet.Data.Entrees
                 }
             }
         }
+
         /// <summary>
-        /// This sets the default option of Mustard in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Mustard is on or off the food item</value>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get
+            {
+                return this.mustard;
+            }
+            set
+            {
+                if (value != this.mustard)
+                {
+                    this.mustard = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         /// <summary>
-        /// This sets the default option of pickles in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Pickle is on or off the food item</value>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get
+            {
+                return this.pickle;
+            }
+            set
+            {
+                if (value != this.pickle)
+                {
+                    this.pickle = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         /// <summary>
-        /// This sets the default option of Cheese in the food item as true
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
         /// </summary>
         /// <value> If the Cheese is on or off the food item</value>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese
+        {
+            get
+            {
+                return this.cheese;
+            }
+            set
+            {
+                if (value != this.cheese)
+                {
+                    this.cheese = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list

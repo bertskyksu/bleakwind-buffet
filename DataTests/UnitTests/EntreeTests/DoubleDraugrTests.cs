@@ -17,6 +17,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         DoubleDraugr entree = new DoubleDraugr();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodCustomizationChanges()
+        {
+            Assert.PropertyChanged(entree, "Bun", () => entree.Bun = false);
+            Assert.PropertyChanged(entree, "Ketchup", () => entree.Ketchup = false);
+            Assert.PropertyChanged(entree, "Mustard", () => entree.Mustard = false);
+            Assert.PropertyChanged(entree, "Pickle", () => entree.Pickle = false);
+            Assert.PropertyChanged(entree, "Cheese", () => entree.Cheese = false);
+            Assert.PropertyChanged(entree, "Tomato", () => entree.Tomato = false);
+            Assert.PropertyChanged(entree, "Lettuce", () => entree.Lettuce = false);
+            Assert.PropertyChanged(entree, "Mayo", () => entree.Mayo = false);
+        }
+        [Fact]
         public void CheckIsAssignableFromIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(entree);

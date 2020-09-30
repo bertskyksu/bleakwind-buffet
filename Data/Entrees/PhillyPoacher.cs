@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +15,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Philly Poacher and its customer order characteristics
     /// </summary>
-    public class PhillyPoacher : Entree
+    public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
@@ -25,21 +47,84 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <value> The calories of the food item</value>
         public override uint Calories => 784;
+
+
         /// <summary>
-        /// This sets the default option of Sirloin in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the Sirloin is onor off the food item</value>
-        public bool Sirloin { get; set; } = true;
+        private bool sirloin = true;
         /// <summary>
-        /// This sets the default option of onion in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the Onion is onor off the food item</value>
-        public bool Onion { get; set; } = true;
+        private bool onion = true;
         /// <summary>
-        /// This sets the default option of a Roll in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this food customization
         /// </summary>
-        /// <value> If the Roll is onor off the food item</value>
-        public bool Roll { get; set; } = true;
+        private bool roll = true;
+
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the Sirloin is on or off the food item</value>
+        public bool Sirloin
+        {
+            get
+            {
+                return this.sirloin;
+            }
+            set
+            {
+                if (value != this.sirloin)
+                {
+                    this.sirloin = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the Onion is on or off the food item</value>
+        public bool Onion
+        {
+            get
+            {
+                return this.onion;
+            }
+            set
+            {
+                if (value != this.onion)
+                {
+                    this.onion = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        /// <summary>
+        /// This sets the food customization and checks if there were any changes 
+        /// from the food Customization GUI controls 
+        /// </summary>
+        /// <value> If the Roll is on or off the food item</value>
+        public bool Roll
+        {
+            get
+            {
+                return this.roll;
+            }
+            set
+            {
+                if (value != this.roll)
+                {
+                    this.roll = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list

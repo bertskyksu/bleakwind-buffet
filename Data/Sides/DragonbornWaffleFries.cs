@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,13 +16,53 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// This class represents the side DragonbornWaffleFries and its customer order characteristics
     /// </summary>
-    public class DragonbornWaffleFries : Side
+    public class DragonbornWaffleFries : Side, INotifyPropertyChanged
     {
+
         /// <summary>
-        /// This gets the Size of the food item and sets it to an inital value of Small
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
         /// </summary>
-        /// <value> The Size of the food item</value>
-        public override Size Size { get; set; } = Size.Small; //default small
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// size property of this side customization
+        /// </summary>
+        private Size size = Size.Small;
+        /// <summary>
+        /// This sets the side customization size and checks if there were any changes 
+        /// from the side Customization size GUI controls 
+        /// </summary>
+        /// <value> size is small,medium, or large</value>
+        public override Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// This will update the price of the food item based on the order size for the customer

@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,14 +16,53 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// This class represents the Drink Warrior Water and its customer order characteristics
     /// </summary>
-    public class WarriorWater : Drink
+    public class WarriorWater : Drink, INotifyPropertyChanged
     {
 
         /// <summary>
-        /// This gets the Size of the food item and sets it to an inital value of Small
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
         /// </summary>
-        /// <value> The Size of the food item</value>
-        public override Size Size { get; set; } = Size.Small; //default small
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This will Notify that a property for this food item has changed and invoke the 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// size property of this drink customization
+        /// </summary>
+        private Size size = Size.Small;
+        /// <summary>
+        /// This sets the drink customization size and checks if there were any changes 
+        /// from the drink Customization size GUI controls 
+        /// </summary>
+        /// <value> size is small,medium, or large</value>
+        public override Size Size
+        {
+            get
+            {
+                return this.size;
+            }
+            set
+            {
+                if (value != this.size)
+                {
+                    this.size = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// This will update the price of the food item based on the order size for the customer
@@ -78,15 +119,58 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// This sets the default option of Ice in the food item as true
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this drink customization
         /// </summary>
-        /// <value>if Ice is in the food item or not</value>
-        public bool Ice { get; set; } = true; //complier makes it set to false initially. hard to access the hidden "backing field"
+        private bool ice = true;
         /// <summary>
-        /// This sets the default option of Lemon in the food item as false
+        /// private value required for this NotifyPropertyChanged and to set the default
+        /// bool property of this drink customization
         /// </summary>
-        /// <value>if Lemon is in the food item or not</value>
-        public bool Lemon { get; set; } = false;
+        private bool lemon = false;
+
+        /// <summary>
+        /// This sets the drink customization and checks if there were any changes 
+        /// from the drink Customization GUI controls 
+        /// </summary>
+        /// <value> If the Ice is on or off the drink item</value>
+        public bool Ice
+        {
+            get
+            {
+                return this.ice;
+            }
+            set
+            {
+                if (value != this.ice)
+                {
+                    this.ice = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// This sets the drink customization and checks if there were any changes 
+        /// from the drink Customization GUI controls 
+        /// </summary>
+        /// <value> If the Lemon is on or off the drink item</value>
+        public bool Lemon
+        {
+            get
+            {
+                return this.lemon;
+            }
+            set
+            {
+                if (value != this.lemon)
+                {
+                    this.lemon = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// adds any special food insturctions to the list if applicable and returns the list
