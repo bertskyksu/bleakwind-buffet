@@ -6,6 +6,8 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +15,28 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// This class represents the Entree Briarheart Burger and its customer order characteristics
     /// </summary>
-    public class BriarheartBurger : Entree
+    public class BriarheartBurger : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// This implements the interface of INotifyPropertyChanged.
+        /// Then invoke for each property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
+        /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
+        /// <param name="propertyName"></param>
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>
@@ -29,16 +51,51 @@ namespace BleakwindBuffet.Data.Entrees
 
         //this format makes the code shorter since we only need to declare the getter/setter on one line
 
+        private bool bun = true;
         /// <summary>
         /// This sets the default option of Buns in the food item as true
         /// </summary>
         /// <value> If the bun is onor off the food item</value>
-        public bool Bun { get; set; } = true; //complier makes it set to false initially. hard to access the hidden "backing field"
+        public bool Bun
+        {
+            get
+            {
+                return this.bun;
+            }
+            set
+            {
+                if (value != this.bun)
+                {
+                    this.bun = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// private value required for this NotifyPropertyChanged
+        /// </summary>
+        private bool ketchup = true;
+        
         /// <summary>
         /// This sets the default option of ketchup in the food item as true
         /// </summary>
         /// <value> If the Ketchup is on or off the food item</value>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get
+            {
+                return this.ketchup;
+            }
+            set
+            {
+                if (value != this.ketchup)
+                {
+                    this.ketchup = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         /// <summary>
         /// This sets the default option of Mustard in the food item as true
         /// </summary>

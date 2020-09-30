@@ -18,6 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         BriarheartBurger entree = new BriarheartBurger();
 
         [Fact]
+        public void ProfileShouldNotifyOfFoodCustomizationChanges()
+        {
+            Assert.PropertyChanged(entree, "Ketchup", () => entree.Ketchup = false);
+        }
+
+        [Fact]
         public void ShouldBeADrink()
         {
             Assert.IsAssignableFrom<Entree>(entree);

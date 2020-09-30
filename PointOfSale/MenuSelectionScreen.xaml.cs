@@ -51,6 +51,7 @@ namespace PointOfSale
         public void BriarheartBurgerSelection(object sender, RoutedEventArgs e)
         {
             BriarheartBurger entree = new BriarheartBurger();
+            
             FoodSelected?.Invoke(this, new MenuSelectionEvent() { fooditem = entree });
         }
 

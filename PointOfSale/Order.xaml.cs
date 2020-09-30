@@ -5,6 +5,7 @@
 */
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Interface;
 using BleakwindBuffet.Data.Sides;
 using PointOfSale.Drinks;
 using PointOfSale.Entrees;
@@ -33,7 +34,7 @@ namespace PointOfSale
         //ItemCustomizationScreen itemCustom = new ItemCustomizationScreen();
         MenuSelectionScreen menu = new MenuSelectionScreen();
 
-
+        List<IOrderItem> finalOrder = new List<IOrderItem>();
         //List<ItemCustomizationScreen> FinalOrder = new List<ItemCustomizationScreen>();
 
         //int currentListIndex = 0;
@@ -69,19 +70,24 @@ namespace PointOfSale
             if(e.fooditem is BriarheartBurger) // this will check if an object is a certain type
             {
                 BriarheartBurgerCustomization fooditem = new BriarheartBurgerCustomization();
+                
                 switchBorder.Child = fooditem; //add burger customization to the screen
 
+                //DataContext = fooditem;
+                fooditem.DataContext = e.fooditem; //allows the DataContext of the XAML variables to access BriarheartBurger
+
+                finalOrder.Add(e.fooditem); //add food item to the list of IOrderItem
+                
+            }
+
+            if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
+            {
                 //now how can we use the information from Custimization...
                 //to make changes to e.fooditem which is the new BriarheartBurger()
                 //final goal ->   use BriarheartBurger.SpecialInstructions
 
                 //we need to find a better way of capturing fooditem's customization information
                 //FinalOrderListView.Items.Add("Briarheart Burger");
-                FinalOrderListView.Items.Add(fooditem.ToString());
-            }
-
-            if (e.fooditem is DoubleDraugr) // this will check if an object is a certain type
-            {
                 DoubleDraugrCustomization fooditem = new DoubleDraugrCustomization();
                 switchBorder.Child = fooditem; //add burger customization to the screen
                 FinalOrderListView.Items.Add(fooditem.ToString());
@@ -180,6 +186,16 @@ namespace PointOfSale
                 switchBorder.Child = fooditem; //add burger customization to the screen
                 FinalOrderListView.Items.Add(fooditem.ToString());
             }
+
+            //double checking what gets put in the list
+            foreach(IOrderItem food in finalOrder)
+            {
+                List<string> foodlist = food.SpecialInstructions;
+                foreach(string s in foodlist)
+                {
+                    Console.WriteLine(s);
+                }
+            }
         }
 
         
@@ -194,7 +210,16 @@ namespace PointOfSale
         {
             switchBorder.Child = menu; //most controls can only have one child
         }
-  
+        
+        /// <summary>
+        /// This method is used when wanting to switch to the menu screen from inside
+        /// a descendant class of Order.xaml.cs
+        /// </summary>
+        public void SwitchToMenu() //click events use RoutedEventArgs e
+        {
+            switchBorder.Child = menu; //most controls can only have one child
+        }
+
 
         /// <summary>
         /// add selected food item

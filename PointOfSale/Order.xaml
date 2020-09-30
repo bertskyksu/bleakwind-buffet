@@ -16,10 +16,11 @@
             <Button Click ="SwitchToMenuSelection" Name="menuSelectButton" Height="50" Margin="10" >
                 Main Menu Selection
             </Button>
-            <Button Click ="SwitchToPaymentSelection" Name="paymentSelectButton" Height="50" Margin="10" >
+            
+            <!--Button Click ="SwitchToPaymentSelection" Name="paymentSelectButton" Height="50" Margin="10" >
                 Payment Selection
-            </Button>
-
+            </-->
+             
             <ListView Name ="FinalOrderListView" Height="400" />
         </StackPanel>
         
