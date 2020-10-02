@@ -12,6 +12,7 @@ using PointOfSale.Entrees;
 using PointOfSale.Sides;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -178,11 +179,13 @@ namespace PointOfSale
                 DragonbornWaffleFriesCustomization fooditem = new DragonbornWaffleFriesCustomization();
                 switchBorder.Child = fooditem;
                 fooditem.DataContext = e.fooditem;
+                //finalOrder.Add(e.fooditem); //only need once below
             }
 
             
             finalOrder.Add(e.fooditem); //add food item to the list of IOrderItem
-
+            
+            DisplayCurrentOrder();
 
             //double checking what gets put in the list
             foreach (IOrderItem food in finalOrder) //for debugging
@@ -196,7 +199,15 @@ namespace PointOfSale
         }
 
         
-
+        public void DisplayCurrentOrder()
+        {
+            FinalOrderListView.Items.Clear();
+            foreach (IOrderItem food in finalOrder) //for debugging
+            {
+                //List<string> foodlist = food.SpecialInstructions;
+                FinalOrderListView.Items.Add(food.ToString());
+            }
+        }
 
         /// <summary>
         /// This button event will take the user back to the main menu to select another food item
@@ -215,8 +226,21 @@ namespace PointOfSale
         public void SwitchToMenu() //click events use RoutedEventArgs e
         {
             switchBorder.Child = menu; //most controls can only have one child
+            DisplayCurrentOrder();
         }
 
+        /// <summary>
+        /// This method is used when wanting to cancel our current food order and
+        /// switch to the menu screen from inside a descendant class of Order.xaml.cs
+        /// It will also update the display for the current order items
+        /// </summary>
+        public void CancelCurrentCustomization()
+        {
+            int lastElement = finalOrder.Count;
+            finalOrder.RemoveAt(lastElement-1);
+            switchBorder.Child = menu; //most controls can only have one child
+            DisplayCurrentOrder();
+        }
 
         /// <summary>
         /// add selected food item

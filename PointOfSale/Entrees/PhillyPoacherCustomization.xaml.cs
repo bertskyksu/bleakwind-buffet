@@ -28,13 +28,24 @@ namespace PointOfSale.Entrees
             InitializeComponent();
         }
         /// <summary>
-        /// This method uses the overrides the toString method to output the 
-        /// desired food item description from the menu page
+        /// This class allows the user to switch back to the main menu screen
+        /// by traversing until Order.xaml.cs is found as a parent then 
+        /// calling on the SwitchToMenu() method
         /// </summary>
-        /// <returns>a string of the food name</returns>
-        public override string ToString()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SwitchBackToMenu(object sender, RoutedEventArgs e)
         {
-            return "Philly Poacher";
+            DependencyObject parent = this;
+            do
+            {
+                parent = LogicalTreeHelper.GetParent(parent);
+            } while (!(parent == null || parent is Order));
+            if (parent is Order ancestor)
+            {
+                ancestor.SwitchToMenu(); //calls on switchToMenu method
+            }
+            //goal is to switch back to Order
         }
     }
 }

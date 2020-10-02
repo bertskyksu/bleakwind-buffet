@@ -9,7 +9,8 @@
     <Grid>
         <!-- should have nothing at the moment-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button Click="SwitchBackToMenu" Style="{StaticResource ConfirmButtonStyle}">

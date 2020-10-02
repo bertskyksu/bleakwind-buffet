@@ -8,68 +8,69 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button Click="SwitchBackToMenu" Style="{StaticResource ConfirmButtonStyle}">
             Confirm Customization
         </Button>
         <StackPanel>
-            <CheckBox Name="Bun" IsChecked="True">
+            <CheckBox Name="Bun" IsChecked="{Binding Path=Bun, Mode=TwoWay}" >
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Bun
             </CheckBox>
-            <CheckBox Name="Ketchup" IsChecked="True">
+            <CheckBox Name="Ketchup" IsChecked="{Binding Path=Ketchup, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Ketchup
             </CheckBox>
-            <CheckBox Name="Mustard" IsChecked="True">
+            <CheckBox Name="Mustard" IsChecked="{Binding Path=Mustard, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Mustard
             </CheckBox>
-            <CheckBox Name="Pickle" IsChecked="True">
+            <CheckBox Name="Pickle" IsChecked="{Binding Path=Pickle, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Pickle
             </CheckBox>
-            <CheckBox Name="Cheese" IsChecked="True">
+            <CheckBox Name="Cheese" IsChecked="{Binding Path=Cheese, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Cheese
             </CheckBox>
-            <CheckBox Name="Tomato" IsChecked="True">
+            <CheckBox Name="Tomato" IsChecked="{Binding Path=Tomato, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Tomato
             </CheckBox>
-            <CheckBox Name="Lettuce" IsChecked="True">
+            <CheckBox Name="Lettuce" IsChecked="{Binding Path=Lettuce, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Lettuce
             </CheckBox>
-            <CheckBox Name="Mayo" IsChecked="True">
+            <CheckBox Name="Mayo" IsChecked="{Binding Path=Mayo, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Mayo
             </CheckBox>
-            <CheckBox Name="Bacon" IsChecked="True">
+            <CheckBox Name="Bacon" IsChecked="{Binding Path=Bacon, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
                 Bacon
             </CheckBox>
-            <CheckBox Name="Egg" IsChecked="True">
+            <CheckBox Name="Egg" IsChecked="{Binding Path=Egg, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>

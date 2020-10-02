@@ -54,5 +54,18 @@ namespace PointOfSale.Entrees
             //goal is to switch back to Order
         }
 
+        void CancelCustomization(object sender, RoutedEventArgs e)
+        {
+            DependencyObject parent = this;
+            do
+            {
+                parent = LogicalTreeHelper.GetParent(parent);
+            } while (!(parent == null || parent is Order));
+            if (parent is Order ancestor)
+            {
+                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+            }
+        }
+
     }
 }

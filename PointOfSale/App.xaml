@@ -8,32 +8,56 @@
         <Style TargetType="StackPanel"/>
         <Style TargetType="Button"/>
         <Style TargetType="CheckBox"/>
-
-        <Style TargetType="ComboBox">
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="MaxDropDownHeight" Value="200"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Width" Value="160"/>
-        </Style>
+        <!--Style TargetType="ComboBox"/-->
         
+
+        <!-- formats the Food size combobox-->
         <Style BasedOn="{StaticResource {x:Type ComboBox}}"
            TargetType="ComboBox"
            x:Key="SizeStyle">
+            
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Margin" Value="0,0,30,360"/>
+            <Setter Property="MaxDropDownHeight" Value="200"/>
+            <!--Setter Property="HorizontalAlignment" Value="Center"/-->
+            <!--Setter Property="Width" Value="160"/-->
         </Style>
 
+        <!-- formats the Soda Flavor combobox-->
+        <Style BasedOn="{StaticResource {x:Type ComboBox}}"
+           TargetType="ComboBox"
+           x:Key="SodaFlavorStyle">
+            
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="0,0,30,360"/>
+            <Setter Property="MaxDropDownHeight" Value="300"/>
+            <!--Setter Property="Width" Value="160"/-->
+            
+        </Style>
+
+        <!-- formats the food customization confirmation button-->
         <Style BasedOn="{StaticResource {x:Type Button}}"
            TargetType="Button"
            x:Key="ConfirmButtonStyle">
             <Setter Property="VerticalAlignment" Value="Bottom"/>
-            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Grid.Column" Value="2"/>
+            <Setter Property="Height" Value="165"/>
+        </Style>
+
+        <Style BasedOn="{StaticResource {x:Type Button}}"
+           TargetType="Button"
+           x:Key="CancelButtonStyle">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="2"/>
             <Setter Property="Height" Value="165"/>
         </Style>
 
         <Style BasedOn="{StaticResource {x:Type CheckBox}}"
            TargetType="CheckBox"
            x:Key="CustomizationOptionsStyle">
-            <!-- still working on this-->
+            <!-- still working on this. Not in use yet-->
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="Height" Value="165"/>
         </Style>

@@ -11,16 +11,17 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button Click="SwitchBackToMenu" Style="{StaticResource ConfirmButtonStyle}">
             Confirm Customization
         </Button>
-        <StackPanel >
-            <ComboBox Name="SizeEnum" Style="{StaticResource SizeStyle}"
+        <ComboBox Name="SizeEnum" Style="{StaticResource SizeStyle}"
                       SelectedValue="{Binding Size, Mode=TwoWay}" />
-
+        <StackPanel >
+            
 
             <CheckBox Name="Ice" IsChecked="{Binding Path=Ice, Mode=TwoWay}" >
                 <CheckBox.LayoutTransform>
