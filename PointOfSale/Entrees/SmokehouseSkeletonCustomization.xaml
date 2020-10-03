@@ -8,12 +8,13 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Button Click="SwitchBackToMenu" Style="{StaticResource ConfirmButtonStyle}">
-            Confirm Customization
+        </Button>
+        <Button Click="CancelCustomization" Style="{StaticResource CancelButtonStyle}">
         </Button>
         <StackPanel>
             <CheckBox Name="SausageLink" IsChecked="{Binding Path=SausageLink, Mode=TwoWay}">
@@ -32,7 +33,7 @@
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="3" ScaleY="3" />
                 </CheckBox.LayoutTransform>
-                HashBrowns
+                HashBrown
             </CheckBox>
             <CheckBox Name="Pancake" IsChecked="{Binding Path=Pancake, Mode=TwoWay}">
                 <CheckBox.LayoutTransform>

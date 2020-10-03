@@ -13,7 +13,8 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button Click="SwitchBackToMenu" Style="{StaticResource ConfirmButtonStyle}">
-            Confirm Customization
+        </Button>
+        <Button Click="CancelCustomization" Style="{StaticResource CancelButtonStyle}">
         </Button>
         <ComboBox Name="SizeEnum" Style="{StaticResource SizeStyle}"
                       SelectedValue="{Binding Size, Mode=TwoWay}" />

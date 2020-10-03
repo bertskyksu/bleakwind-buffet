@@ -43,15 +43,19 @@
            x:Key="ConfirmButtonStyle">
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="Grid.Column" Value="2"/>
-            <Setter Property="Height" Value="165"/>
+            <Setter Property="Height" Value="140"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Content" Value="Confirm"/>
         </Style>
 
         <Style BasedOn="{StaticResource {x:Type Button}}"
            TargetType="Button"
            x:Key="CancelButtonStyle">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Grid.Column" Value="2"/>
-            <Setter Property="Height" Value="165"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Height" Value="140"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Content" Value="Cancel"/>
         </Style>
 
         <Style BasedOn="{StaticResource {x:Type CheckBox}}"
