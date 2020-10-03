@@ -20,6 +20,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
         {
+            Assert.PropertyChanged(drink, "Ice", () => drink.Ice = true);
+            Assert.PropertyChanged(drink, "Ice", () => drink.Ice = false);
+            Assert.PropertyChanged(drink, "RoomForCream", () => drink.RoomForCream = true);
+            Assert.PropertyChanged(drink, "RoomForCream", () => drink.RoomForCream = false);
+            Assert.PropertyChanged(drink, "Decaf", () => drink.Decaf = true);
+            Assert.PropertyChanged(drink, "Decaf", () => drink.Decaf = false);
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Medium);
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Large);
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Small);
