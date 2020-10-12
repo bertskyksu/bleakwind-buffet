@@ -65,6 +65,7 @@ namespace BleakwindBuffet.Data.Drinks
                     NotifyPropertyChanged();
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
 
                 }
             }

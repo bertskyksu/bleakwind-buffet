@@ -72,9 +72,13 @@ namespace BleakwindBuffet.Data.Menu
 
        
         /// <summary>
-        /// private instance
+        /// private entree if we wanted to set and initial value of the Entree
         /// </summary>
         private Entree entree;
+        /// <summary>
+        /// The Entree of the ComboOrder. When the Entree changes it will notify the properties: Entree, Price, Calories, and
+        /// SpecialInstructions so that these changes will be reflected on the comboorder throughout the program
+        /// </summary>
         public Entree Entree
         {
             get
@@ -94,7 +98,14 @@ namespace BleakwindBuffet.Data.Menu
             }
         }
 
+        /// <summary>
+        /// private drink if we wanted to set and initial value of the drink
+        /// </summary>
         private Drink drink;
+        /// <summary>
+        /// The Drink of the ComboOrder. When the Drink changes it will notify the properties: Drink, Price, Calories, and
+        /// SpecialInstructions so that these changes will be reflected on the ComboOrder throughout the program
+        /// </summary>
         public Drink Drink
         {
             get
@@ -115,7 +126,14 @@ namespace BleakwindBuffet.Data.Menu
             }
         }
 
+        /// <summary>
+        /// private side if we wanted to set and initial value of the side
+        /// </summary>
         private Side side;
+        /// <summary>
+        /// The Side of the ComboOrder. When the Side changes it will notify the properties: Side, Price, Calories, and
+        /// SpecialInstructions so that these changes will be reflected on the ComboOrder throughout the program
+        /// </summary>
         public Side Side
         {
             get
@@ -136,7 +154,14 @@ namespace BleakwindBuffet.Data.Menu
             }
         }
 
+        /// <summary>
+        /// private price if we wanted to set the initial value of a price. not that it would be useful
+        /// </summary>
         private double price;
+        /// <summary>
+        /// This combines the prices of the Entree, Drink, and Side of the ComboOrder to get the total price of the Combo.
+        /// The price is also discounted by $1.00 for making the Combo.
+        /// </summary>
         public double Price
         {
             //include the $1 discount
@@ -150,6 +175,9 @@ namespace BleakwindBuffet.Data.Menu
         }
 
         //private uint calories;
+        /// <summary>
+        /// This combines the calories of the Entree, Drink, and Side of the ComboOrder to get the total calories of the Combo.
+        /// </summary>
         public uint Calories
         {
             get
@@ -159,8 +187,10 @@ namespace BleakwindBuffet.Data.Menu
            
         }
 
-        //private List<string> specialInstructions;
-
+        /// <summary>
+        /// This combines the Special Instructions of the Entree, Drink, and Side of the ComboOrder to get the combined string list
+        /// of the entire combo.
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get

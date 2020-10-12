@@ -63,6 +63,7 @@ namespace BleakwindBuffet.Data.Sides
                     NotifyPropertyChanged();
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
                 }
             }
         }

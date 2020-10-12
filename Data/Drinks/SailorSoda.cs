@@ -90,6 +90,9 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+                    NotifyPropertyChanged("SpecialInstructions");
                 }
             }
         }

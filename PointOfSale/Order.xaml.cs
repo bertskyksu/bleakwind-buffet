@@ -33,20 +33,24 @@ namespace PointOfSale
     /// </summary>
     public partial class Order : UserControl
     {
-
+        /// <summary>
+        /// using anthor instance of FoodReSelected so that I can go back and edit orders. Unfortunatley this technically
+        /// removes the items and then re-adds it back. Still a work in progress.
+        /// </summary>
         public event EventHandler<MenuSelectionEvent> FoodReSelected;
 
 
-        //ItemCustomizationScreen itemCustom = new ItemCustomizationScreen();
+        /// <summary>
+        /// sets and instance of where selecting food items from buttons will be.
+        /// A EventHandler is locacted in this class
+        /// </summary>
         MenuSelectionScreen menu = new MenuSelectionScreen();
 
+        /// <summary>
+        /// An instance of the Ordering class in Data Project used to keep track of all the food items in a single order
+        /// </summary>
         Ordering newOrder = new Ordering();
 
-        
-        List<IOrderItem> finalOrder = new List<IOrderItem>();
-        //List<ItemCustomizationScreen> FinalOrder = new List<ItemCustomizationScreen>();
-
-        //int currentListIndex = 0;
 
         /// <summary>
         /// This component will oversee all the other components: menu & item selection.
@@ -62,12 +66,12 @@ namespace PointOfSale
             //add event handler click event:
             menu.FoodSelected += FoodButtonClickEvent; //attach event listener from MenuSelectionScreen -> FoodButtonClickEvent
             //attach an event handler
-            FoodReSelected += FoodButtonClickEvent;
+            FoodReSelected += FoodButtonClickEvent; // another event listener to keep track of editing an existing order
         }
 
         
         /// <summary>
-        /// this class 
+        /// this class sets a new instance of the 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e">represents a food object passed from FoodSelected event handler</param>
@@ -215,21 +219,16 @@ namespace PointOfSale
 
             DisplayCurrentOrder();
 
-            //Testing what gets put in the list
-            foreach (IOrderItem food in finalOrder) //for debugging
-            {
-                List<string> foodlist = food.SpecialInstructions;
-                foreach(string s in foodlist)
-                {
-                    Console.WriteLine(s);
-                }
-            }
+            
 
         }
 
         
 
-
+        /// <summary>
+        /// This class implments a ListView to display the current order's items(price, specialinstructions), subtotal, tax, and total.
+        /// buttons are also implemented so I can call another instance of FoodButtonClickEvent to edit an existing order.
+        /// </summary>
         public void DisplayCurrentOrder()
         {
             FinalOrderListView.Items.Clear();
@@ -271,7 +270,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <param name="item"></param>
+        /// <param name="item">the current food item being edited or deleted</param>
         public void ItemReSelectionClickEvent(object sender, RoutedEventArgs e, IOrderItem item)
         {
             newOrder.Remove(item);
@@ -320,13 +319,16 @@ namespace PointOfSale
             DisplayCurrentOrder();
         }
 
+        /// <summary>
+        /// not currently implemented 
+        /// </summary>
         public void CancelCurrentSelection()
         {
             //IOrderItem a = menu.FoodSelected();
         }
 
         /// <summary>
-        /// add selected food item
+        /// currently not being implemented
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
