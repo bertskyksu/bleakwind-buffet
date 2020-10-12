@@ -23,7 +23,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// This implements the interface of INotifyPropertyChanged.
         /// Then invoke for each property
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// This will Notify that a property for this food item has changed and invoke the 
@@ -31,13 +31,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
         /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
         /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        /*private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+        }*/
         /// <summary>
         /// private value required for this NotifyPropertyChanged and to set the default
         /// size property of this drink customization
@@ -60,6 +60,8 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
                 }
             }
         }

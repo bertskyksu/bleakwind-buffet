@@ -30,14 +30,15 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
             <Button Click ="SwitchToMenuSelection" Name="menuSelectButton" Height="50" Margin="10" >
-                Main Menu Selection
+                Start New Order
             </Button>
             
             <!--Button Click ="SwitchToPaymentSelection" Name="paymentSelectButton" Height="50" Margin="10" >
                 Payment Selection
             </-->
              
-            <ListView Name ="FinalOrderListView" Height="400" />
+            <ListView Name ="FinalOrderListView" Height="280" />
+            <ListView Name ="FinalPriceListView" Height="100" />
         </StackPanel>
         
         <Border x:Name="switchBorder" Grid.Column="0">

@@ -5,13 +5,14 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Text;
 
 
 namespace BleakwindBuffet.Data.Interface
 {
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// The price for a food item

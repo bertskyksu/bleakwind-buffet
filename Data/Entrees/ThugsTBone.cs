@@ -18,6 +18,7 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThugsTBone : Entree, INotifyPropertyChanged
     {
 
+        /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.
         /// Then invoke for each property
@@ -36,7 +37,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+        }*/
         /// <summary>
         /// Sets the inital default price of the food item
         /// </summary>

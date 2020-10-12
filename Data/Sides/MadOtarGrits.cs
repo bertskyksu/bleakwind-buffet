@@ -19,6 +19,7 @@ namespace BleakwindBuffet.Data.Sides
     public class MadOtarGrits : Side, INotifyPropertyChanged
     {
 
+        /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.
         /// Then invoke for each property
@@ -37,7 +38,7 @@ namespace BleakwindBuffet.Data.Sides
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+        }*/
 
         /// <summary>
         /// private value required for this NotifyPropertyChanged and to set the default
@@ -61,6 +62,8 @@ namespace BleakwindBuffet.Data.Sides
                 {
                     this.size = value;
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
                 }
             }
         }

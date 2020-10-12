@@ -9,6 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -29,6 +30,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(entree, "Mayo", () => entree.Mayo = false);
             Assert.PropertyChanged(entree, "Bacon", () => entree.Bacon = false);
             Assert.PropertyChanged(entree, "Egg", () => entree.Egg = false);
+        }
+        [Fact]
+        public void CheckIsAssignableFromINotifyPropertyChanged()
+        {
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(entree);
         }
         [Fact]
         public void CheckIsAssignableFromIOrderItem()

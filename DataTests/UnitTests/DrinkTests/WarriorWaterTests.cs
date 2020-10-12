@@ -11,6 +11,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -24,10 +25,16 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Medium);
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Large);
             Assert.PropertyChanged(drink, "Size", () => drink.Size = Size.Small);
-            Assert.PropertyChanged(drink, "Ice", () => drink.Ice = true);
+            
             Assert.PropertyChanged(drink, "Ice", () => drink.Ice = false);
+            Assert.PropertyChanged(drink, "Ice", () => drink.Ice = true);
             Assert.PropertyChanged(drink, "Lemon", () => drink.Lemon = true);
             Assert.PropertyChanged(drink, "Lemon", () => drink.Lemon = false);
+        }
+        [Fact]
+        public void CheckIsAssignableFromINotifyPropertyChanged()
+        {
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(drink);
         }
         [Fact]
         public void CheckIsAssignableFromIOrderItem()

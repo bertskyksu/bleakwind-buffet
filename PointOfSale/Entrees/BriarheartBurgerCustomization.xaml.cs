@@ -70,6 +70,7 @@ namespace PointOfSale.Entrees
             } while (!(parent == null || parent is Order));
             if (parent is Order ancestor)
             {
+                //ancestor.CancelCurrentSelection();
                 ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
             }
         }

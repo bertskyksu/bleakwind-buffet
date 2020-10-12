@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -26,7 +27,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.PropertyChanged(entree, "Pickle", () => entree.Pickle = false);
             Assert.PropertyChanged(entree, "Cheese", () => entree.Cheese = false);
         }
-
+        [Fact]
+        public void CheckIsAssignableFromINotifyPropertyChanged()
+        {
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(entree);
+        }
         [Fact]
         public void ShouldBeAEntree()
         {
@@ -116,12 +121,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            //Price is double
             Assert.Equal(6.32, entree.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            //since calories are uint
             Assert.Equal(743.ToString(), (entree.Calories).ToString());
             
         }

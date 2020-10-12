@@ -10,6 +10,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -23,6 +24,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);
             Assert.PropertyChanged(side, "Size", () => side.Size = Size.Large);
             Assert.PropertyChanged(side, "Size", () => side.Size = Size.Small);
+
+            Assert.PropertyChanged(side, "Calories", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Calories", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Calories", () => side.Size = Size.Small);
+
+            Assert.PropertyChanged(side, "Price", () => side.Size = Size.Medium);
+            Assert.PropertyChanged(side, "Price", () => side.Size = Size.Large);
+            Assert.PropertyChanged(side, "Price", () => side.Size = Size.Small);
+        }
+        [Fact]
+        public void CheckIsAssignableFromINotifyPropertyChanged()
+        {
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(side);
         }
         [Fact]
         public void CheckIsAssignableFromIOrderItem()

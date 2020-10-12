@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// This implements the interface of INotifyPropertyChanged.
         /// Then invoke for each property
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// This will Notify that a property for this food item has changed and invoke the 
@@ -32,14 +32,14 @@ namespace BleakwindBuffet.Data.Drinks
         /// <remarks> If you use the CallerMemberName attribute, calls to the NotifyPropertyChanged method 
         /// don't have to specify the property name as a string argument requires "using System.Runtime.CompilerServices" ;  </remarks>
         /// <param name="propertyName"></param>
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        /*private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
+        */
         /// <summary>
         /// private value required for this NotifyPropertyChanged and to set the default
         /// size property of this drink customization
@@ -61,11 +61,16 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value != this.size)
                 {
                     this.size = value;
+                     
                     NotifyPropertyChanged();
+                    NotifyPropertyChanged("Price");
+                    NotifyPropertyChanged("Calories");
+
                 }
             }
         }
 
+        
         /// <summary>
         /// This will update the price of the food item based on the order size for the customer
         /// </summary>
@@ -91,6 +96,7 @@ namespace BleakwindBuffet.Data.Drinks
                 }
                 else throw new NotImplementedException("unknown size");
             }
+
         }
 
         /// <summary>
@@ -118,6 +124,7 @@ namespace BleakwindBuffet.Data.Drinks
                 }
                 else throw new NotImplementedException("unknown size");
             }
+            
         }
 
         /// <summary>
