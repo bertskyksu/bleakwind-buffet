@@ -3,6 +3,7 @@
 * Class name: ThugsTBoneCustomization.xaml.cs
 * Purpose: This class represents the customization options on Thugs T-Bone for a GUI
 */
+using BleakwindBuffet.Data.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,10 +24,15 @@ namespace PointOfSale.Entrees
     /// </summary>
     public partial class ThugsTBoneCustomization : UserControl
     {
-        public ThugsTBoneCustomization()
+        public ThugsTBoneCustomization(IOrderItem food)
         {
             InitializeComponent();
+            //this.Ketchup.IsChecked = true; //default Ketchup value?
+            Food = food;
+            //DataContext = new BriarheartBurger();
         }
+
+        public IOrderItem Food;
 
         /// <summary>
         /// This button confirms the customization allows the user to switch back to the main menu screen
@@ -65,7 +71,7 @@ namespace PointOfSale.Entrees
             } while (!(parent == null || parent is Order));
             if (parent is Order ancestor)
             {
-                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+                ancestor.CancelCurrentCustomization(Food); //calls on switchToMenu method
             }
         }
     }

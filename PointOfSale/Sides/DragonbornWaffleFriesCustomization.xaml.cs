@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data.Interface;
 
 namespace PointOfSale.Sides
 {
@@ -24,11 +25,15 @@ namespace PointOfSale.Sides
     /// </summary>
     public partial class DragonbornWaffleFriesCustomization : UserControl
     {
-        public DragonbornWaffleFriesCustomization()
+        public DragonbornWaffleFriesCustomization(IOrderItem food)
         {
             InitializeComponent();
             SizeEnum.ItemsSource = Enum.GetValues(typeof(Size)); // this avoids messy xaml code to get enum.Size
+            Food = food;
         }
+
+
+        public IOrderItem Food;
         /// <summary>
         /// This button confirms the customization allows the user to switch back to the main menu screen
         /// by traversing until Order.xaml.cs is found as a parent then 
@@ -66,7 +71,7 @@ namespace PointOfSale.Sides
             } while (!(parent == null || parent is Order));
             if (parent is Order ancestor)
             {
-                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+                ancestor.CancelCurrentCustomization(Food); //calls on switchToMenu method
             }
         }
     }

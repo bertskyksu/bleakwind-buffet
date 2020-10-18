@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Interface;
 
 namespace PointOfSale.Entrees
 {
@@ -25,13 +26,15 @@ namespace PointOfSale.Entrees
     /// </summary>
     public partial class BriarheartBurgerCustomization : UserControl
     {
-        public BriarheartBurgerCustomization()
+        public BriarheartBurgerCustomization(IOrderItem food)
         {
             InitializeComponent();
             //this.Ketchup.IsChecked = true; //default Ketchup value?
-
+            Food = food;
             //DataContext = new BriarheartBurger();
         }
+
+        public IOrderItem Food;
         
         /// <summary>
         /// This button confirms the customization allows the user to switch back to the main menu screen
@@ -71,7 +74,7 @@ namespace PointOfSale.Entrees
             if (parent is Order ancestor)
             {
                 //ancestor.CancelCurrentSelection();
-                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+                ancestor.CancelCurrentCustomization(Food); //calls on switchToMenu method
             }
         }
 

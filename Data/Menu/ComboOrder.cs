@@ -94,6 +94,7 @@ namespace BleakwindBuffet.Data.Menu
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
+                    entree.PropertyChanged += NotifyComboChanges; //(correction ???)
                 }
             }
         }
@@ -118,10 +119,11 @@ namespace BleakwindBuffet.Data.Menu
                 if (value != this.drink)
                 {
                     this.drink = value;
-                    NotifyPropertyChanged();
+                    NotifyPropertyChanged(); //changes property of drink
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
+                    drink.PropertyChanged += NotifyComboChanges; //(correction ???)
                 }
             }
         }
@@ -150,6 +152,7 @@ namespace BleakwindBuffet.Data.Menu
                     NotifyPropertyChanged("Price");
                     NotifyPropertyChanged("Calories");
                     NotifyPropertyChanged("SpecialInstructions");
+                    side.PropertyChanged += NotifyComboChanges; //(correction ???)
                 }
             }
         }

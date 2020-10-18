@@ -29,8 +29,11 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <Button Click ="SwitchToMenuSelection" Name="menuSelectButton" Height="50" Margin="10" >
-                Start New Order
+            <Button Click ="CancelOrderButtonSelection" Name="CancelOrderButton" Height="50" Margin="10" >
+                Cancel Order
+            </Button>
+            <Button Click ="CompleteOrderButtonSelection" Name="CompleteOrderButton" Height="50" Margin="10" >
+                Complete Order
             </Button>
             
             <!--Button Click ="SwitchToPaymentSelection" Name="paymentSelectButton" Height="50" Margin="10" >

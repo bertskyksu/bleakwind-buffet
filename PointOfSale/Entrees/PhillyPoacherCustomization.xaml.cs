@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Interface;
 
 namespace PointOfSale.Entrees
 {
@@ -23,10 +24,15 @@ namespace PointOfSale.Entrees
     /// </summary>
     public partial class PhillyPoacherCustomization : UserControl
     {
-        public PhillyPoacherCustomization()
+        public PhillyPoacherCustomization(IOrderItem food)
         {
             InitializeComponent();
+            //this.Ketchup.IsChecked = true; //default Ketchup value?
+            Food = food;
+            //DataContext = new BriarheartBurger();
         }
+
+        public IOrderItem Food;
 
         /// <summary>
         /// This button confirms the customization allows the user to switch back to the main menu screen
@@ -65,7 +71,7 @@ namespace PointOfSale.Entrees
             } while (!(parent == null || parent is Order));
             if (parent is Order ancestor)
             {
-                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+                ancestor.CancelCurrentCustomization(Food); //calls on switchToMenu method
             }
         }
     }

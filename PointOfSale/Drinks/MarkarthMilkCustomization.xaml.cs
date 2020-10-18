@@ -3,6 +3,7 @@
 * Class name: MarkarthMilkCustomization.xaml.cs
 * Purpose: This class represents the customization options on Markarth Milk for a GUI
 */
+using BleakwindBuffet.Data.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,11 +25,15 @@ namespace PointOfSale.Drinks
     /// </summary>
     public partial class MarkarthMilkCustomization : UserControl
     {
-        public MarkarthMilkCustomization()
+        public MarkarthMilkCustomization(IOrderItem food)
         {
             InitializeComponent();
             SizeEnum.ItemsSource = Enum.GetValues(typeof(Size)); // this avoids messy xaml code to get enum.Size
+            Food = food;
         }
+
+
+        public IOrderItem Food;
         /// <summary>
         /// This button confirms the customization allows the user to switch back to the main menu screen
         /// by traversing until Order.xaml.cs is found as a parent then 
@@ -66,7 +71,7 @@ namespace PointOfSale.Drinks
             } while (!(parent == null || parent is Order));
             if (parent is Order ancestor)
             {
-                ancestor.CancelCurrentCustomization(); //calls on switchToMenu method
+                ancestor.CancelCurrentCustomization(Food); //calls on switchToMenu method
             }
         }
     }
