@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		..\..\PointOfSale-milestone-1-uml.pdf = ..\..\PointOfSale-milestone-1-uml.pdf
 		Documentation\PointOfSale-milestone-2-uml.pdf = Documentation\PointOfSale-milestone-2-uml.pdf
 		..\PointOfSale-milestone-3-uml.pdf = ..\PointOfSale-milestone-3-uml.pdf
+		..\PointOfSale-milestone-4-uml.pdf = ..\PointOfSale-milestone-4-uml.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{136B1142-EA52-4CA4-8DB5-E1EC73768531}"

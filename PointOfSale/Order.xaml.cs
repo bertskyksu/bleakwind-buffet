@@ -47,6 +47,7 @@ namespace PointOfSale
         /// </summary>
         MenuSelectionScreen menu = new MenuSelectionScreen();
 
+        ComboSelectionScreen comboScreen = new ComboSelectionScreen();
         /// <summary>
         /// An instance of the Ordering class in Data Project used to keep track of all the food items in a single order
         /// </summary>
@@ -66,12 +67,30 @@ namespace PointOfSale
             DisplayCurrentOrder();
             //add event handler click event:
             menu.FoodSelected += FoodButtonClickEvent; //attach event listener from MenuSelectionScreen -> FoodButtonClickEvent
+            comboScreen.FoodSelected += ComboButtonClickEvent;
             //attach an event handler
             //FoodReSelected += FoodButtonClickEvent; // another event listener to keep track of editing an existing order
             newOrder.PropertyChanged += DisplayCurrentOrderListener;
         }
 
-        
+        public void SwitchComboSelectionScreen()
+        {
+            switchBorder.Child = comboScreen;
+        }
+
+        public void ComboButtonClickEvent(object sender, MenuSelectionEvent e)
+        {
+            if (e.fooditem is ComboOrder combo) // this will check if an object is a certain type
+            {
+                //newOrder.Add(combo.Entree);
+                //newOrder.Add(combo.Drink);
+                //newOrder.Add(combo.Side);
+                newOrder.Add(combo);
+            }
+            DisplayCurrentOrder();
+        }
+
+
         /// <summary>
         /// this class sets a new instance of the 
         /// </summary>
@@ -400,6 +419,7 @@ namespace PointOfSale
             FinalOrderListView.Items.Add("     Order #"+ newOrder.OrderNumber);
             foreach (IOrderItem food in newOrder.ListOrder) //for debugging
             {
+                
                 //List<string> foodlist = food.SpecialInstructions;
                 FinalOrderListView.Items.Add(food.ToString() + "  $" + food.Price);
                 foreach (string custom in food.SpecialInstructions)

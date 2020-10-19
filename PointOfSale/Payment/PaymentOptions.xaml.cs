@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Interface;
+﻿/*
+* Author: Albert Winemiller
+* Class name: PaymentOptions.xaml.cs
+* Purpose: This class represents the payment options available for the customer
+*/
+using BleakwindBuffet.Data.Interface;
 using RoundRegister;
 using System;
 using System.Collections.Generic;
@@ -31,6 +36,9 @@ namespace PointOfSale.Payment
             //GetOrderObject();
         }
 
+        /// <summary>
+        /// Gets the order object to call on methods and get the current ordering instance
+        /// </summary>
         public void GetOrderObject()
         {
             parent = this;
@@ -44,35 +52,22 @@ namespace PointOfSale.Payment
             }
         }
 
-        /*public void SwitchToPaymentScreen(UIElement screen)
-        {
-            /*parent = this;
-            do
-            {
-                parent = LogicalTreeHelper.GetParent(parent);
-            } while (!(parent == null || parent is Order));
-            if (parent is Order ancestor)
-            {
-                ancestor.SwitchToNewScreen(screen);
-            }
-            currentOrder.SwitchToNewScreen(screen);
-        }*/
-
-
+        /// <summary>
+        /// returns the user back to order customization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ReturnToOrderButtonSelection(object sender, RoutedEventArgs e)
         {
-            /*parent = this;
-            do
-            {
-                parent = LogicalTreeHelper.GetParent(parent);
-            } while (!(parent == null || parent is Order));
-            if (parent is Order ancestor)
-            {
-                ancestor.SwitchToMenu();
-            }*/
+
             currentOrder.SwitchToMenu();
         }
 
+        /// <summary>
+        /// The button selection for making a cash payment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CashButtonSelection(object sender, RoutedEventArgs e)
         {
             CashPayment cashScreen = new CashPayment(currentOrder);
@@ -84,6 +79,11 @@ namespace PointOfSale.Payment
             cashScreen.GetPaymentOptionsObject();
         }
 
+        /// <summary>
+        /// Takes user to the credit/debit card payment screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CreditDebitButtonSelection(object sender, RoutedEventArgs e)
         {
             CreditDebitPayment creditScreen = new CreditDebitPayment(currentOrder);
@@ -97,12 +97,14 @@ namespace PointOfSale.Payment
         }
 
         /// <summary>
-        /// need: Order #, date&time, all IOrderItems(price, special Instructions), subtotal, tax, total, payment method, changed owed
+        /// Prints the Reciept of the current Order in a text file 
         /// </summary>
+        /// <param name="paymentMethod">the type of customer payment</param>
+        /// <param name="changeOwed">the changed owed to the customer</param>
         public void PrintReciept(string paymentMethod, double changeOwed) //can I set a Button inside of Cash and credit Classes?
         {
             
-            RecieptPrinter.PrintLine(currentOrder.newOrder.OrderNumber.ToString()); //order number
+            RecieptPrinter.PrintLine("Order # "+ currentOrder.newOrder.OrderNumber.ToString()); //order number
             RecieptPrinter.PrintLine(DateTime.Now.ToString()); //date&time
 
             foreach (IOrderItem food in currentOrder.newOrder.ListOrder)
@@ -114,14 +116,15 @@ namespace PointOfSale.Payment
                 }
 
             }
-            RecieptPrinter.PrintLine(currentOrder.newOrder.Subtotal.ToString()); //subtotal
-            RecieptPrinter.PrintLine(currentOrder.newOrder.Tax.ToString()); //subtotal
-            RecieptPrinter.PrintLine(currentOrder.newOrder.Total.ToString()); //subtotal
+            RecieptPrinter.PrintLine("SubTotal: $" + currentOrder.newOrder.Subtotal.ToString()); //subtotal
+            RecieptPrinter.PrintLine("Tax:      $"+ currentOrder.newOrder.Tax.ToString()); //Tax
+            RecieptPrinter.PrintLine("Total:    $" + currentOrder.newOrder.Total.ToString()); //Total
             //make a parameter for which payment method was used?
-            RecieptPrinter.PrintLine(paymentMethod); //payment method
-            RecieptPrinter.PrintLine(changeOwed.ToString()); //0.00 for credit/debit
+            RecieptPrinter.PrintLine("Payment Type: " + paymentMethod); //payment method
+            RecieptPrinter.PrintLine("Changed: $" + changeOwed.ToString()); //0.00 for credit/debit
             RecieptPrinter.CutTape();
             //make sure 1 reciept line is no longer than 40 characters
+            
         }
     }
 }

@@ -17,18 +17,30 @@
         </Grid.ColumnDefinitions>
        
         <StackPanel Grid.Column="0">
-            <TextBlock Name="One" Text="$1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="35" Width="100"
+            <TextBlock Name="One" Text="$1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
                             TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
             <TextBlock Name="Two" Text="$2" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
                             TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
-            <TextBlock Name="Three" Text="$3" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+            <TextBlock Name="Five" Text="$5" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="ten" Text="$10" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="Twenty" Text="$20" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="fifty" Text="$50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="hundred" Text="$100" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
                             TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <local:NumberBox Value="{Binding Path=OnesPaid}"/>
-            <local:NumberBox Value="{Binding Path=TwosPaid}"/>
-            <local:NumberBox Value="{Binding Path=ThreesPaid}"/>
+            <local:NumberBox Value="{Binding Path=OnesPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=TwosPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=FivesPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=TensPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=TwentiesPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=FiftiesPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=HundredsPaid, Mode=TwoWay}"/>
 
         </StackPanel>
         <StackPanel Grid.Column="2">
@@ -44,11 +56,108 @@
                             TextAlignment="Center" />
             </Border>
             <Border BorderThickness="1" BorderBrush="Green" Height="55">
-                <TextBlock Name="ThreesChange" Text="{Binding Path=ThreesChange}"
+                <TextBlock Name="FivesChange" Text="{Binding Path=FivesChange}"
                             VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
                             TextAlignment="Center" />
             </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="TensChange" Text="{Binding Path=TensChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="TwentiesChange" Text="{Binding Path=TwentiesChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="FiftiesChange" Text="{Binding Path=FiftiesChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="HundredsChange" Text="{Binding Path=HundredsChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Button Click="GetChangeOwed" Height="50" Content="Get Change" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            <TextBlock Name="HalfDollar" Text="$0.50" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="Quarter" Text="$0.25" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="Dime" Text="$0.10" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="Nickel" Text="$0.05" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
+            <TextBlock Name="Penny" Text="$0.01" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Green" FontSize="40" Width="100"
+                            TextAlignment="Center" Margin="0,2,0,2" Height="51"/>
             
+        </StackPanel>
+
+        <StackPanel Grid.Column="4">
+            <local:NumberBox Value="{Binding Path=HalfDollarsPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=QuartersPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=DimesPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=NickelsPaid, Mode=TwoWay}"/>
+            <local:NumberBox Value="{Binding Path=PenniesPaid, Mode=TwoWay}"/>
+
+            <TextBlock Name="AmountDue1" Text="Amount" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Width="100" Height="25"
+                            TextAlignment="Center" />
+            <TextBlock Name="AmountDue2" Text="Due:" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Width="100" Height="25"
+                            TextAlignment="Center" />
+            <TextBlock Name="ChangeOwed1" Text="Change" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Width="100" Height="25"
+                            TextAlignment="Center" />
+            <TextBlock Name="ChangeOwed2" Text="Owed:" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Width="100" Height="25"
+                            TextAlignment="Center" />
+
+        </StackPanel>
+        <StackPanel Grid.Column="5">
+            <!-- Do Some DataBinding Here -->
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="HalfDollarsChange" Text="{Binding Path=HalfDollarsChange}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="QuartersChange" Text="{Binding Path=QuartersChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="DimesChange" Text="{Binding Path=DimesChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="NickelsChange" Text="{Binding Path=NickelsChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Green" Height="55">
+                <TextBlock Name="PenniesChange" Text="{Binding Path=PenniesChange}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+
+
+            <Border BorderThickness="1" BorderBrush="Black" Height="55">
+                <TextBlock Name="CashPaid" Text="{Binding Path=CashPaid}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Height="55">
+                <TextBlock Name="CashOwed" Text="{Binding Path=CashOwed}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Width="100"
+                            TextAlignment="Center" />
+            </Border>
+
         </StackPanel>
     </Grid>
     
