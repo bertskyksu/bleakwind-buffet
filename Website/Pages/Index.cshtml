@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Bleakwind Buffet";
+}
+<h1>@ViewData["Title"]</h1>
+<p>
+    We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight
+    from the world of Skyrim. Shake the blood off your sword and sake your thirst with one
+    of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger.
+    Or vanquish the the mighty Thalmor Triple Burger!
+    You’ve had a hard adventure and earned your loot, so spend it with us!
+</p>
+
+<h2> Entrees </h2>
+<ul class="menu-list">
+    <li>
+        @foreach (Entree food in Menu.Entrees())
+        {
+            <div class="menu-item">
+                <div>@food.ToString()</div>
+                <div>Price: $@food.Price</div>
+                <div>Calories: @food.Calories</div>
+            </div>
+        }
+    </li>
+</ul>
+
+<h2> Sides </h2>
+<ul class="menu-list">
+
+        @foreach (Side food in Menu.Sides())
+        {
+            <li>
+                <div class="menu-item">
+                    <div>@food.ToString()</div>
+                    <div>Price: $@food.Price</div>
+                    <div>Calories: @food.Calories</div>
+                </div>
+            </li>
+         }  
+</ul>
+
+
+<h2> Drinks </h2>
+<ul class="menu-list">
+    <li>
+        @foreach (Drink food in Menu.Drinks())
+        {
+            <div class="menu-item">
+                <div>@food.ToString()</div>
+                <div>Price: $@food.Price</div>
+                <div>Calories: @food.Calories</div>
+            </div>
+        }
+    </li>
+</ul>
+
+
+
