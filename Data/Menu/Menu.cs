@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Menu
         /// <returns> IEnumerable of Entrees </returns>
         public static IEnumerable<IOrderItem> Entrees()
         {
-            List<IOrderItem> entrees = new List<IOrderItem>() { new BriarheartBurger(), new DoubleDraugr(), new GardenOrcOmelette(), 
+            List<IOrderItem> entrees = new List<IOrderItem>() { new BriarheartBurger(), new DoubleDraugr(), new GardenOrcOmelette(),
                                                     new PhillyPoacher(), new SmokehouseSkeleton(), new ThalmorTriple(), new ThugsTBone() };
 
             return entrees;
@@ -46,19 +46,26 @@ namespace BleakwindBuffet.Data.Menu
             List<IOrderItem> sides = new List<IOrderItem>();
             foreach (Size size in Enum.GetValues(typeof(Size)))
             {
-                    
+
                 DragonbornWaffleFries itemFries = new DragonbornWaffleFries();
                 itemFries.Size = size;
                 sides.Add(itemFries);
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
 
                 FriedMiraak itemMiraak = new FriedMiraak();
                 itemMiraak.Size = size;
                 sides.Add(itemMiraak);
-
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
                 MadOtarGrits itemGrits = new MadOtarGrits();
                 itemGrits.Size = size;
                 sides.Add(itemGrits);
-
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
                 VokunSalad itemSalad = new VokunSalad();
                 itemSalad.Size = size;
                 sides.Add(itemSalad);
@@ -73,7 +80,7 @@ namespace BleakwindBuffet.Data.Menu
         public static IEnumerable<IOrderItem> Drinks()
         {
             List<IOrderItem> drinks = new List<IOrderItem>();
-            
+
             foreach (Size size in Enum.GetValues(typeof(Size)))
             {
 
@@ -99,7 +106,7 @@ namespace BleakwindBuffet.Data.Menu
                 drinks.Add(itemWater);
 
 
-                
+
                 foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
                 {
                     SailorSoda itemSoda = new SailorSoda();
@@ -107,17 +114,96 @@ namespace BleakwindBuffet.Data.Menu
                     itemSoda.Flavor = flavor;
                     drinks.Add(itemSoda);
                 }
-                
+
             }
             return drinks;
         }
 
+        public static IEnumerable<IOrderItem> DrinksNoFlavors()
+        {
+            List<IOrderItem> drinks = new List<IOrderItem>();
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                AretinoAppleJuice itemJuice = new AretinoAppleJuice();
+                itemJuice.Size = size;
+                drinks.Add(itemJuice);
+
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                CandlehearthCoffee itemCoffee = new CandlehearthCoffee();
+                itemCoffee.Size = size;
+                drinks.Add(itemCoffee);
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+
+                MarkarthMilk itemMilk = new MarkarthMilk();
+                itemMilk.Size = size;
+                drinks.Add(itemMilk);
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                WarriorWater itemWater = new WarriorWater();
+                itemWater.Size = size;
+                drinks.Add(itemWater);
+            }
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                SailorSoda itemSoda = new SailorSoda();
+                itemSoda.Size = size;
+                drinks.Add(itemSoda);
+            }
+            return drinks;
+        }
+
+
+        public static IEnumerable<IOrderItem> DrinksSoda()
+        {
+            List<IOrderItem> drinksSodas = new List<IOrderItem>();
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                SailorSoda itemSoda = new SailorSoda();
+                itemSoda.Size = size; 
+                drinksSodas.Add(itemSoda);
+            }
+            return drinksSodas;
+        }
+
+        public static IEnumerable<SodaFlavor> DrinksSodaFlavors()
+        {
+            List<SodaFlavor> drinksSodaFlavors = new List<SodaFlavor>();
+            foreach(SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+            {
+                drinksSodaFlavors.Add(flavor);
+            }
+            return drinksSodaFlavors;
+        }
+
         /// <summary>
-        /// This static method will call on the methods Entrees, Sides, and Drinks
-        /// and combine these 
+        /// Adds all entrees comboed with fries and a cherry soda
         /// </summary>
-        /// <returns> IEnumerable list of all menu food items</returns>
-        public static IEnumerable<IOrderItem> FullMenu()
+        /// <returns>all entrees paired with fries and soda</returns>
+        public static IEnumerable<IOrderItem> ComboExamples()
+        {
+            List<IOrderItem> combosExample = new List<IOrderItem>();
+            SailorSoda drink = new SailorSoda();
+            DragonbornWaffleFries side = new DragonbornWaffleFries();
+            foreach (Entree entree in Entrees())
+            {
+                ComboOrder combo = new ComboOrder(entree, side, drink);
+                combosExample.Add(combo);
+            }
+            return combosExample;
+        }
+
+            /// <summary>
+            /// This static method will call on the methods Entrees, Sides, and Drinks
+            /// and combine these 
+            /// </summary>
+            /// <returns> IEnumerable list of all menu food items</returns>
+            public static IEnumerable<IOrderItem> FullMenu()
         {
             List<IOrderItem> FullMenu = new List<IOrderItem>();
 

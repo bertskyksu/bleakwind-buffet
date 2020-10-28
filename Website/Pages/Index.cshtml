@@ -12,49 +12,141 @@
     You’ve had a hard adventure and earned your loot, so spend it with us!
 </p>
 
-<h2> Entrees </h2>
-<ul class="menu-list">
-    <li>
-        @foreach (Entree food in Menu.Entrees())
-        {
-            <div class="menu-item">
-                <div>@food.ToString()</div>
-                <div>Price: $@food.Price</div>
-                <div>Calories: @food.Calories</div>
-            </div>
-        }
-    </li>
-</ul>
+<div class="row">
+    <div class="column">
+        <h2> Entrees </h2>
+        <div class="menu-item">
+            @foreach (Entree food in Menu.Entrees())
+            {
+                <ul class="menu-list">
 
-<h2> Sides </h2>
-<ul class="menu-list">
+                    <li>@food.ToString()</li>
+                    <li>Price: $@food.Price</li>
+                    <li>Calories: @food.Calories</li>
+                </ul>
+            }
+        </div>
 
-        @foreach (Side food in Menu.Sides())
-        {
+        <h2> Sides </h2>
+        <div class="menu-item">
+            @foreach (Side food in Menu.Sides())
+            {
+                <ul class="menu-list">
+
+                    <li>@food.ToString()</li>
+                    <li>Price: $@food.Price</li>
+                    <li>Calories: @food.Calories</li>
+
+                </ul>
+                @if (food.Size == Size.Large)
+                {
+                    <br />
+                }
+
+            }
+        </div>
+    </div>
+
+    <div class="column">
+        <h2> Drinks </h2>
+        <div class="menu-item">
+            @foreach (Drink food in Menu.DrinksNoFlavors())
+            {
+                <ul class="menu-list">
+
+                    <li>@food.ToString()</li>
+                    <li>Price: $@food.Price</li>
+                    <li>Calories: @food.Calories</li>
+
+                </ul>
+                @if (food.Size == Size.Large)
+                {
+                    <br />
+                }
+            }
+        </div>
+
+        <h2> Soda Flavors </h2>
+        <div class="menu-item">
+            @foreach (SodaFlavor food in Menu.DrinksSodaFlavors())
+            {
+                <ul class="menu-list">
+
+                    <li>@food.ToString()</li>
+                </ul>
+
+            }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="columnCombo">
+        <h2> Make it a Combo! $1 Discount </h2>
+        <div class="menu-item">
+            @foreach (ComboOrder food in Menu.ComboExamples())
+            {
+            <ul class="combo-list">
+
+                <li>@food.Entree</li>
+                <li>@food.Side</li>
+                <li>@food.Drink</li>
+                <li>Price: $@food.Price</li>
+                <li>Calories: @food.Calories</li>
+            </ul>
+
+            }
+        </div>
+    </div>
+</div>
+
+<!--div class="row">
+    <div class="column">
+        <h2> Entrees </h2>
+        <ul class="menu-list">
             <li>
-                <div class="menu-item">
-                    <div>@food.ToString()</div>
-                    <div>Price: $@food.Price</div>
-                    <div>Calories: @food.Calories</div>
-                </div>
+                @foreach (Entree food in Menu.Entrees())
+                {
+                    <div class="menu-item">
+                        <div>@food</div>
+                        <div>Price: $@food.Price</div>
+                        <div>Calories: @food.Calories</div>
+                    </div>
+                }
             </li>
-         }  
-</ul>
+        </ul>
+    </div>
 
+    <div class="column">
+        <h2> Sides </h2>
+        <ul class="menu-list">
 
-<h2> Drinks </h2>
-<ul class="menu-list">
-    <li>
-        @foreach (Drink food in Menu.Drinks())
-        {
-            <div class="menu-item">
-                <div>@food.ToString()</div>
-                <div>Price: $@food.Price</div>
-                <div>Calories: @food.Calories</div>
-            </div>
-        }
-    </li>
-</ul>
+            @foreach (Side food in Menu.Sides())
+            {
+                <li>
+                    <div class="menu-item">
+                        <div>@food</div>
+                        <div>Price: $@food.Price</div>
+                        <div>Calories: @food.Calories</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
 
+    <div class="column">
+        <h2> Drinks </h2>
+        <ul class="menu-list">
+            <li>
+                @foreach (Drink food in Menu.Drinks())
+                {
+                    <div class="menu-item">
+                        <div>@food.ToString()</div>
+                        <div>Price: $@food.Price</div>
+                        <div>Calories: @food.Calories</div>
+                    </div>
+                }
+            </li>
+        </ul>
+    </div>
 
-
+</!-div-->

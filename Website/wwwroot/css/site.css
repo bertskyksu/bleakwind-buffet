@@ -70,21 +70,67 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.column {
+    /*change to 50% to made it double sided*/
+    width: 50%;
+    padding: 5px;
+}
+.columnCombo {
+    /*change to 50% to made it double sided*/
+    width: 100%;
+    padding: 5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
 .menu-item {
+    padding: 5px;
+    margin: 0;
+    border: 2px solid black;
+}
+
+ul.menu-list {
+    border: 2px solid green;
+    padding: 0;
+    margin: 0;
+}
+    ul.menu-list > li {
+        display: inline-block;
+        width: 100px;   
+        padding: 0;
+        margin: 0;
+    }
+    ul.menu-list li:nth-child(1) {
+        width: 250px;
+        color: rebeccapurple;
+    }
+ul.combo-list {
+    border: 2px solid green;
     padding: 0;
     margin: 0;
 }
 
-ul.menu-list {
-    list-style-type: none;
-}
+    ul.combo-list > li {
+        display: inline-block;
+        width: 100px;
+        padding: 0;
+        margin: 0;
+    }
 
-    ul.menu-list > li {
-        display: block;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        min-height: 50px;
-        text-align: center;
-        padding: 16px;
+    ul.combo-list li:nth-child(1) {
+        width: 175px;
+        color: rebeccapurple;
+    }
+    ul.combo-list li:nth-child(2) {
+        width: 250px;
+        color: rebeccapurple;
+    }
+    ul.combo-list li:nth-child(3) {
+        width: 200px;
+        color: rebeccapurple;
     }

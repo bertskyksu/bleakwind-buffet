@@ -201,5 +201,14 @@ namespace BleakwindBuffet.Data.Drinks
             return $"{Size} {Flavor} Sailor Soda";
             
         }
+
+        /// <summary>
+        /// Only gets the string without the flavor attached
+        /// </summary>
+        /// <returns> the name of the food item and size description if applicable </returns>
+        public string ToCutString()
+        {
+            return $"{Size} Sailor Soda";
+        }
     }
 }
