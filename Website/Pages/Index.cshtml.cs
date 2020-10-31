@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Albert Winemiller
+* Class name: index.cshtml.cs
+* Purpose: This class represents the index page
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

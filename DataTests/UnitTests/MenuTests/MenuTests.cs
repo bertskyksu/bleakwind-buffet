@@ -12,9 +12,57 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
 {
     public class MenuTests
     {
-        
 
+        [Fact]
+        public void ReturnAllDrinksNoFlavors()
+        {
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Small Aretino Apple Juice"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Medium Aretino Apple Juice"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Large Aretino Apple Juice"); });
 
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Small Candlehearth Coffee"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Medium Candlehearth Coffee"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Large Candlehearth Coffee"); });
+
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Small Markarth Milk"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Medium Markarth Milk"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Large Markarth Milk"); });
+
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Small Warrior Water"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Medium Warrior Water"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Large Warrior Water"); });
+
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Small Cherry Sailor Soda"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Medium Cherry Sailor Soda"); });
+            Assert.Contains(Menu.DrinksNoFlavors(), (item) => { return item.ToString().Equals("Large Cherry Sailor Soda"); });
+        }
+
+        [Fact]
+        public void ReturnAllDrinksSoda()
+        {
+            Assert.Contains(Menu.DrinksSoda(), (item) => { return item.ToString().Equals("Small Cherry Sailor Soda"); });
+            Assert.Contains(Menu.DrinksSoda(), (item) => { return item.ToString().Equals("Medium Cherry Sailor Soda"); });
+            Assert.Contains(Menu.DrinksSoda(), (item) => { return item.ToString().Equals("Large Cherry Sailor Soda"); });
+        }
+
+        [Fact]
+        public void ReturnAllDrinksSodaFlavors()
+        {
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Blackberry"); });
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Cherry"); });
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Grapefruit"); });
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Lemon"); });
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Peach"); });
+            Assert.Contains(Menu.DrinksSodaFlavors(), (item) => { return item.ToString().Equals("Watermelon"); });
+        }
+        /*
+        [Fact]
+        public void ReturnAllComboExamples()
+        {
+            Assert.Contains(Menu.ComboExamples(), (item) => { return item.ToString().Equals("Briarheart Burger"); });
+            
+        }
+        */
         [Fact]
         public void ReturnAllEntrees()
         {

@@ -1,3 +1,8 @@
+/*
+* Author: Albert Winemiller
+* Class name: Error.cshtml.cs
+* Purpose: This class represents the Error page
+*/
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

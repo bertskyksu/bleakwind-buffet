@@ -1,3 +1,8 @@
+/*
+* Author: Albert Winemiller
+* Class name: about.cshtml.cs
+* Purpose: This class represents the about page
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +17,6 @@ namespace Website.Pages
         public void OnGet()
         {
         }
+        
     }
 }

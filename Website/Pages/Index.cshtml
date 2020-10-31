@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Bleakwind Buffet";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1> <!--This is the page title-->
+<!--This is a paragraph entry at beginning of page-->
 <p>
     We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight
     from the world of Skyrim. Shake the blood off your sword and sake your thirst with one
@@ -11,8 +12,9 @@
     Or vanquish the the mighty Thalmor Triple Burger!
     You’ve had a hard adventure and earned your loot, so spend it with us!
 </p>
-
+<!--This sets up a row of columns-->
 <div class="row">
+    <!--First column on left holds entrees and sides-->
     <div class="column">
         <h2> Entrees </h2>
         <div class="menu-item">
@@ -46,8 +48,10 @@
             }
         </div>
     </div>
-
+    <!--2nd column on right containing drinks and soda flavors-->
     <div class="column">
+        <!--a foreach loop looping through all the Drinks from menu.cs and displaying them
+            in an unorder list-->
         <h2> Drinks </h2>
         <div class="menu-item">
             @foreach (Drink food in Menu.DrinksNoFlavors())
@@ -65,7 +69,8 @@
                 }
             }
         </div>
-
+        <!--a foreach loop looping through all the SodaFlavors from menu.cs and displaying them
+        in an unorder list-->
         <h2> Soda Flavors </h2>
         <div class="menu-item">
             @foreach (SodaFlavor food in Menu.DrinksSodaFlavors())
@@ -79,74 +84,26 @@
         </div>
     </div>
 </div>
+<!--This makes another row with 1 column for listing the combos-->
 <div class="row">
     <div class="columnCombo">
         <h2> Make it a Combo! $1 Discount </h2>
         <div class="menu-item">
+            <!--a foreach loop looping through all the ComboOrders from menu.cs and displaying them 
+                in an unorder list-->
             @foreach (ComboOrder food in Menu.ComboExamples())
             {
-            <ul class="combo-list">
+                <ul class="combo-list">
 
-                <li>@food.Entree</li>
-                <li>@food.Side</li>
-                <li>@food.Drink</li>
-                <li>Price: $@food.Price</li>
-                <li>Calories: @food.Calories</li>
-            </ul>
+                    <li>@food.Entree</li>
+                    <li>@food.Side</li>
+                    <li>@food.Drink</li>
+                    <li>Price: $@food.Price</li>
+                    <li>Calories: @food.Calories</li>
+                </ul>
 
             }
         </div>
     </div>
 </div>
 
-<!--div class="row">
-    <div class="column">
-        <h2> Entrees </h2>
-        <ul class="menu-list">
-            <li>
-                @foreach (Entree food in Menu.Entrees())
-                {
-                    <div class="menu-item">
-                        <div>@food</div>
-                        <div>Price: $@food.Price</div>
-                        <div>Calories: @food.Calories</div>
-                    </div>
-                }
-            </li>
-        </ul>
-    </div>
-
-    <div class="column">
-        <h2> Sides </h2>
-        <ul class="menu-list">
-
-            @foreach (Side food in Menu.Sides())
-            {
-                <li>
-                    <div class="menu-item">
-                        <div>@food</div>
-                        <div>Price: $@food.Price</div>
-                        <div>Calories: @food.Calories</div>
-                    </div>
-                </li>
-            }
-        </ul>
-    </div>
-
-    <div class="column">
-        <h2> Drinks </h2>
-        <ul class="menu-list">
-            <li>
-                @foreach (Drink food in Menu.Drinks())
-                {
-                    <div class="menu-item">
-                        <div>@food.ToString()</div>
-                        <div>Price: $@food.Price</div>
-                        <div>Calories: @food.Calories</div>
-                    </div>
-                }
-            </li>
-        </ul>
-    </div>
-
-</!-div-->

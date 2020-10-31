@@ -1,3 +1,8 @@
+/*
+* Author: Albert Winemiller
+* Class name: Program.cshtml.cs
+* Purpose: This class represents the program
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;

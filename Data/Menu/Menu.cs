@@ -119,6 +119,10 @@ namespace BleakwindBuffet.Data.Menu
             return drinks;
         }
 
+        /// <summary>
+        /// Gets a list of all drinks without all the soda flavors included
+        /// </summary>
+        /// <returns>a list of all drinks</returns>
         public static IEnumerable<IOrderItem> DrinksNoFlavors()
         {
             List<IOrderItem> drinks = new List<IOrderItem>();
@@ -158,7 +162,10 @@ namespace BleakwindBuffet.Data.Menu
             return drinks;
         }
 
-
+        /// <summary>
+        /// This gets a list of all sizes of Sailor soda 
+        /// </summary>
+        /// <returns>a list of sailor sodas</returns>
         public static IEnumerable<IOrderItem> DrinksSoda()
         {
             List<IOrderItem> drinksSodas = new List<IOrderItem>();
@@ -171,6 +178,10 @@ namespace BleakwindBuffet.Data.Menu
             return drinksSodas;
         }
 
+        /// <summary>
+        /// This accumulates a list of all the SailorSoda flavors
+        /// </summary>
+        /// <returns>a list of soda flavors</returns>
         public static IEnumerable<SodaFlavor> DrinksSodaFlavors()
         {
             List<SodaFlavor> drinksSodaFlavors = new List<SodaFlavor>();
@@ -198,12 +209,12 @@ namespace BleakwindBuffet.Data.Menu
             return combosExample;
         }
 
-            /// <summary>
-            /// This static method will call on the methods Entrees, Sides, and Drinks
-            /// and combine these 
-            /// </summary>
-            /// <returns> IEnumerable list of all menu food items</returns>
-            public static IEnumerable<IOrderItem> FullMenu()
+        /// <summary>
+        /// This static method will call on the methods Entrees, Sides, and Drinks
+        /// and combine these 
+        /// </summary>
+        /// <returns> IEnumerable list of all menu food items</returns>
+        public static IEnumerable<IOrderItem> FullMenu()
         {
             List<IOrderItem> FullMenu = new List<IOrderItem>();
 
