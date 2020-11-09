@@ -12,98 +12,136 @@
     Or vanquish the the mighty Thalmor Triple Burger!
     You’ve had a hard adventure and earned your loot, so spend it with us!
 </p>
-<!--This sets up a row of columns-->
-<div class="row">
-    <!--First column on left holds entrees and sides-->
-    <div class="column">
-        <h2> Entrees </h2>
-        <div class="menu-item">
-            @foreach (Entree food in Menu.Entrees())
-            {
-                <ul class="menu-list">
 
-                    <li>@food.ToString()</li>
-                    <li>Price: $@food.Price</li>
-                    <li>Calories: @food.Calories</li>
-                </ul>
-            }
-        </div>
-
-        <h2> Sides </h2>
-        <div class="menu-item">
-            @foreach (Side food in Menu.Sides())
-            {
-                <ul class="menu-list">
-
-                    <li>@food.ToString()</li>
-                    <li>Price: $@food.Price</li>
-                    <li>Calories: @food.Calories</li>
-
-                </ul>
-                @if (food.Size == Size.Large)
+<form>
+    <div class="row">
+        <div class="columnFull">
+            <div id="search">
+                <!--This came from the Web Data Exercise-->
+                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                <input type="submit" value="Search">
+            </div>
+            <div>
+                <h4>Food Types</h4>
+                @foreach (String foodType in Menu.FoodTypes)
                 {
-                    <br />
+                    <label>
+                        <input type="checkbox" name="FoodTypes" value="@foodType" checked="@Model.FoodTypes.Contains(foodType)" />
+                        @foodType
+                    </label>
                 }
+                <h4>Calories</h4>
+                <div>
+                    Between
+                    <input name="CaloriesMin" type="number" min="0" max="2000" step="10" placeholder="min" value="@Model.CaloriesMin" />
+                    and
+                    <input name="CaloriesMax" type="number" min="0" max="2000" step="10" placeholder="max" value="@Model.CaloriesMax" />
+                </div>
+                <h4>Prices</h4>
+                <div>
+                    Between $
+                    <input name="PricesMin" type="number" min="0" max="20.00" step="0.01" placeholder="min" value="@Model.PricesMin" />
+                    and $
+                    <input name="PricesMax" type="number" min="0" max="20.00" step="0.01" placeholder="max" value="@Model.PricesMax" />
+                </div>
+            </div>
 
-            }
+
         </div>
     </div>
-    <!--2nd column on right containing drinks and soda flavors-->
-    <div class="column">
-        <!--a foreach loop looping through all the Drinks from menu.cs and displaying them
-            in an unorder list-->
-        <h2> Drinks </h2>
-        <div class="menu-item">
-            @foreach (Drink food in Menu.DrinksNoFlavors())
-            {
-                <ul class="menu-list">
 
-                    <li>@food.ToString()</li>
-                    <li>Price: $@food.Price</li>
-                    <li>Calories: @food.Calories</li>
+        <!--This sets up a row of columns-->
+        <div class="row">
+            <!--First column on left holds entrees and sides-->
+            <div class="columnHalf">
+                <h2> Entrees </h2>
+                <div class="menu-item">
+                    @foreach (Entree food in Model.DisplayedEntrees)
+                    {
+                        <ul class="menu-list">
 
-                </ul>
-                @if (food.Size == Size.Large)
-                {
-                    <br />
-                }
-            }
-        </div>
-        <!--a foreach loop looping through all the SodaFlavors from menu.cs and displaying them
-        in an unorder list-->
-        <h2> Soda Flavors </h2>
-        <div class="menu-item">
-            @foreach (SodaFlavor food in Menu.DrinksSodaFlavors())
-            {
-                <ul class="menu-list">
+                            <li>@food.ToString()</li>
+                            <li>Price: $@food.Price</li>
+                            <li>Calories: @food.Calories</li>
+                        </ul>
+                    }
+                </div>
 
-                    <li>@food.ToString()</li>
-                </ul>
+                <h2> Sides </h2>
+                <div class="menu-item">
+                    @foreach (Side food in Model.DisplayedSides)
+                    {
+                        <ul class="menu-list">
 
-            }
-        </div>
-    </div>
-</div>
-<!--This makes another row with 1 column for listing the combos-->
-<div class="row">
-    <div class="columnCombo">
-        <h2> Make it a Combo! $1 Discount </h2>
-        <div class="menu-item">
-            <!--a foreach loop looping through all the ComboOrders from menu.cs and displaying them 
+                            <li>@food.ToString()</li>
+                            <li>Price: $@food.Price</li>
+                            <li>Calories: @food.Calories</li>
+
+                        </ul>
+                        @if (food.Size == Size.Large)
+                        {
+                            <br />
+                        }
+
+                    }
+                </div>
+            </div>
+            <!--2nd column on right containing drinks and soda flavors-->
+            <div class="columnHalf">
+                <!--a foreach loop looping through all the Drinks from menu.cs and displaying them
                 in an unorder list-->
-            @foreach (ComboOrder food in Menu.ComboExamples())
-            {
-                <ul class="combo-list">
+                <h2> Drinks </h2>
+                <div class="menu-item">
+                    @foreach (Drink food in Model.DisplayedDrinks)
+                    {
+                        <ul class="menu-list">
 
-                    <li>@food.Entree</li>
-                    <li>@food.Side</li>
-                    <li>@food.Drink</li>
-                    <li>Price: $@food.Price</li>
-                    <li>Calories: @food.Calories</li>
-                </ul>
+                            <li>@food.ToString()</li>
+                            <li>Price: $@food.Price</li>
+                            <li>Calories: @food.Calories</li>
 
-            }
+                        </ul>
+                        @if (food.Size == Size.Large)
+                        {
+                            <br />
+                        }
+                    }
+                </div>
+                <!--a foreach loop looping through all the SodaFlavors from menu.cs and displaying them
+            in an unorder list-->
+                <h2> Soda Flavors </h2>
+                <div class="menu-item">
+                    @foreach (SodaFlavor food in Menu.DrinksSodaFlavors())
+                    {
+                        <ul class="menu-list">
+
+                            <li>@food.ToString()</li>
+                        </ul>
+
+                    }
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        <!--This makes another row with 1 column for listing the combos-->
+        <div class="row">
+            <div class="columnFull">
+                <h2> Make it a Combo! $1 Discount </h2>
+                <div class="menu-item">
+                    <!--a foreach loop looping through all the ComboOrders from menu.cs and displaying them
+                    in an unorder list-->
+                    @foreach (ComboOrder food in Menu.ComboExamples())
+                    {
+                        <ul class="combo-list">
 
+                            <li>@food.Entree</li>
+                            <li>@food.Side</li>
+                            <li>@food.Drink</li>
+                            <li>Price: $@food.Price</li>
+                            <li>Calories: @food.Calories</li>
+                        </ul>
+
+                    }
+                </div>
+            </div>
+        </div>
+</form>
