@@ -19,6 +19,11 @@ namespace BleakwindBuffet.Data.Sides
     public class MadOtarGrits : Side, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Cheesey Grits.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

@@ -70,67 +70,87 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.columnHalf {
-    /*change to 50% to made it double sided*/
-    width: 50%;
+.columnThird { /*used to make entree, side*/
+    /*change to 33% to made it double sided*/
+    width: 33%;
     padding: 5px;
 }
-.columnFull {
-    /*change to 50% to made it double sided*/
-    width: 100%;
-    padding: 5px;
+@media only screen and (max-width: 490px) {
+    .columnThird {
+        /*change to 100% to made it single sided*/
+        width: 100%;
+        padding: 5px;
+    }
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+    .columnHalf { /*not being used right now*/
+        /*change to 50% to made it double sided*/
+        width: 50%;
+        padding: 5px;
+    }
+
+    .columnFull {
+        /*change to 50% to made it double sided*/
+        /*currently being used for single column rows like combos*/
+        width: 100%;
+        padding: 5px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
 
-.menu-item {
-    padding: 5px;
-    margin: 0;
-    border: 2px solid black;
-}
-
-ul.menu-list {
-    border: 2px solid green;
-    padding: 0;
-    margin: 0;
-}
-    ul.menu-list > li {
-        display: inline-block;
-        width: 100px;   
-        padding: 0;
+    .menu-item {
+        padding: 5px;
         margin: 0;
+        border: 2px solid black;
     }
-    ul.menu-list li:nth-child(1) {
-        width: 250px;
-        color: rebeccapurple;
-    }
-ul.combo-list {
-    border: 2px solid green;
-    padding: 0;
-    margin: 0;
-}
 
-    ul.combo-list > li {
-        display: inline-block;
-        width: 100px;
+    ul.menu-list {
+        border: 2px solid green;
         padding: 0;
         margin: 0;
     }
 
-    ul.combo-list li:nth-child(1) {
-        width: 175px;
-        color: rebeccapurple;
+        ul.menu-list > li {
+            display: inline-block;
+            width: 100px;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.menu-list li:nth-child(1) {
+            width: 250px;
+            color: rebeccapurple;
+        }
+
+    ul.combo-list {
+        border: 2px solid green;
+        padding: 0;
+        margin: 0;
     }
-    ul.combo-list li:nth-child(2) {
-        width: 250px;
-        color: rebeccapurple;
-    }
-    ul.combo-list li:nth-child(3) {
-        width: 200px;
-        color: rebeccapurple;
-    }
+
+        ul.combo-list > li {
+            display: inline-block;
+            width: 100px;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.combo-list li:nth-child(1) {
+            width: 175px;
+            color: rebeccapurple;
+        }
+
+        ul.combo-list li:nth-child(2) {
+            width: 250px;
+            color: rebeccapurple;
+        }
+
+        ul.combo-list li:nth-child(3) {
+            width: 200px;
+            color: rebeccapurple;
+        }

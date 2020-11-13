@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     {
         ThalmorTriple entree = new ThalmorTriple();
 
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.", entree.Description);
+        }
         [Fact]
         public void ProfileShouldNotifyOfFoodCustomizationChanges()
         {

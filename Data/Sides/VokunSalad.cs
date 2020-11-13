@@ -19,6 +19,11 @@ namespace BleakwindBuffet.Data.Sides
     public class VokunSalad : Side, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

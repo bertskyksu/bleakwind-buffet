@@ -13,11 +13,17 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+
     /// <summary>
     /// This class represents the Drink Warrior Water and its customer order characteristics
     /// </summary>
     public class WarriorWater : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "It’s water. Just water.";
 
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

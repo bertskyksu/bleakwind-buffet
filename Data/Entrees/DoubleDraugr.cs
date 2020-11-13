@@ -12,11 +12,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+
     /// <summary>
     /// This class represents the Entree Double Draugr and its customer order characteristics
     /// </summary>
     public class DoubleDraugr : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

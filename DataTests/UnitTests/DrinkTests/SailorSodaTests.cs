@@ -20,6 +20,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     {
         SailorSoda drink = new SailorSoda();
 
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.", drink.Description);
+        }
         [Fact]
         public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
         {
@@ -170,5 +177,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             drink.Flavor = flavor;
             Assert.Equal(name, drink.ToString());
         }
+
+        [Theory]
+        [InlineData(SodaFlavor.Watermelon, Size.Small, "Small Sailor Soda")]
+        [InlineData(SodaFlavor.Watermelon, Size.Medium, "Medium Sailor Soda")]
+        [InlineData(SodaFlavor.Watermelon, Size.Large, "Large Sailor Soda")]
+        public void ShouldHaveCorrectToCutStringBasedOnSize(SodaFlavor flavor, Size size, string name)
+        {
+            drink.Size = size;
+            drink.Flavor = flavor;
+            Assert.Equal(name, drink.ToCutString());
+        }
+
     }
 }

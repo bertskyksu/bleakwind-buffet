@@ -15,12 +15,14 @@
 
 <form>
     <div class="row">
-        <div class="columnFull">
+        <div class="columnThird">
             <div id="search">
                 <!--This came from the Web Data Exercise-->
                 <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
                 <input type="submit" value="Search">
             </div>
+        </div>
+        <div class="columnThird">
             <div>
                 <h4>Food Types</h4>
                 @foreach (String foodType in Menu.FoodTypes)
@@ -30,30 +32,31 @@
                         @foodType
                     </label>
                 }
-                <h4>Calories</h4>
-                <div>
-                    Between
-                    <input name="CaloriesMin" type="number" min="0" max="2000" step="10" placeholder="min" value="@Model.CaloriesMin" />
-                    and
-                    <input name="CaloriesMax" type="number" min="0" max="2000" step="10" placeholder="max" value="@Model.CaloriesMax" />
-                </div>
-                <h4>Prices</h4>
-                <div>
-                    Between $
-                    <input name="PricesMin" type="number" min="0" max="20.00" step="0.01" placeholder="min" value="@Model.PricesMin" />
-                    and $
-                    <input name="PricesMax" type="number" min="0" max="20.00" step="0.01" placeholder="max" value="@Model.PricesMax" />
-                </div>
             </div>
-
-
         </div>
-    </div>
+        <div class="columnThird">
+            <h4>Calories</h4>
+            <div>
+                Between
+                <input name="CaloriesMin" type="number" min="0" max="2000" step="10" placeholder="min" value="@Model.CaloriesMin" />
+                and
+                <input name="CaloriesMax" type="number" min="0" max="2000" step="10" placeholder="max" value="@Model.CaloriesMax" />
+            </div>
+            <h4>Prices</h4>
+            <div>
+                Between $
+                <input name="PricesMin" type="number" min="0" max="20.00" step="0.01" placeholder="min" value="@Model.PricesMin" />
+                and $
+                <input name="PricesMax" type="number" min="0" max="20.00" step="0.01" placeholder="max" value="@Model.PricesMax" />
+            </div>
+        </div>
 
-        <!--This sets up a row of columns-->
-        <div class="row">
+
+    </div>
+    <div class="row">
+            <!--This sets up a row of columns-->
             <!--First column on left holds entrees and sides-->
-            <div class="columnHalf">
+            <div class="columnThird">
                 <h2> Entrees </h2>
                 <div class="menu-item">
                     @foreach (Entree food in Model.DisplayedEntrees)
@@ -64,9 +67,11 @@
                             <li>Price: $@food.Price</li>
                             <li>Calories: @food.Calories</li>
                         </ul>
+                        <p>@food.Description</p>
                     }
                 </div>
-
+            </div>
+            <div class="columnThird">
                 <h2> Sides </h2>
                 <div class="menu-item">
                     @foreach (Side food in Model.DisplayedSides)
@@ -77,9 +82,12 @@
                             <li>Price: $@food.Price</li>
                             <li>Calories: @food.Calories</li>
 
+
                         </ul>
+
                         @if (food.Size == Size.Large)
                         {
+                            <p>@food.Description</p>
                             <br />
                         }
 
@@ -87,9 +95,9 @@
                 </div>
             </div>
             <!--2nd column on right containing drinks and soda flavors-->
-            <div class="columnHalf">
+            <div class="columnThird">
                 <!--a foreach loop looping through all the Drinks from menu.cs and displaying them
-                in an unorder list-->
+            in an unorder list-->
                 <h2> Drinks </h2>
                 <div class="menu-item">
                     @foreach (Drink food in Model.DisplayedDrinks)
@@ -100,9 +108,12 @@
                             <li>Price: $@food.Price</li>
                             <li>Calories: @food.Calories</li>
 
+
                         </ul>
+
                         @if (food.Size == Size.Large)
                         {
+                            <p>@food.Description</p>
                             <br />
                         }
                     }
@@ -128,7 +139,7 @@
                 <h2> Make it a Combo! $1 Discount </h2>
                 <div class="menu-item">
                     <!--a foreach loop looping through all the ComboOrders from menu.cs and displaying them
-                    in an unorder list-->
+                in an unorder list-->
                     @foreach (ComboOrder food in Menu.ComboExamples())
                     {
                         <ul class="combo-list">

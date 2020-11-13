@@ -191,6 +191,17 @@ namespace BleakwindBuffet.Data.Menu
         }
 
         /// <summary>
+        /// This combines the descriptions of all all 3 items in the combo
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return Side.Description + Entree.Description + Drink.Description;
+            }
+        }
+
+        /// <summary>
         /// This combines the Special Instructions of the Entree, Drink, and Side of the ComboOrder to get the combined string list
         /// of the entire combo.
         /// </summary>

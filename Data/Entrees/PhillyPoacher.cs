@@ -12,11 +12,17 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+
     /// <summary>
     /// This class represents the Entree Philly Poacher and its customer order characteristics
     /// </summary>
     public class PhillyPoacher : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
 
         /*
         /// <summary>

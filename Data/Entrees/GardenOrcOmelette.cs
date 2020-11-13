@@ -18,6 +18,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

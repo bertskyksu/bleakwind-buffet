@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     {
         ThugsTBone entree = new ThugsTBone();
 
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("Juicy T-Bone, not much else to say.", entree.Description);
+        }
         [Fact]
         public void ProfileShouldNotifyOfFoodCustomizationChanges()
         {

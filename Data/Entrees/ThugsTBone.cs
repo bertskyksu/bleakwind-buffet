@@ -18,6 +18,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThugsTBone : Entree, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Juicy T-Bone, not much else to say.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

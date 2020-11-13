@@ -21,6 +21,12 @@ namespace BleakwindBuffet.Data.Drinks
     {
 
         /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Fresh squeezed apple juice.";
+
+
+        /// <summary>
         /// This implements the interface of INotifyPropertyChanged.
         /// Then invoke for each property
         /// </summary>

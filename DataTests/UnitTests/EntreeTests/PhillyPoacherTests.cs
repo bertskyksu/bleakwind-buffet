@@ -17,6 +17,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     {
         PhillyPoacher entree = new PhillyPoacher();
 
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.", entree.Description);
+        }
         [Fact]
         public void ProfileShouldNotifyOfFoodCustomizationChanges()
         {

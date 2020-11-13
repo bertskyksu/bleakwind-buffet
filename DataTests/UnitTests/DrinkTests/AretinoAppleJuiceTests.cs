@@ -19,6 +19,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         AretinoAppleJuice drink = new AretinoAppleJuice();
 
         [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            
+            Assert.Equal("Fresh squeezed apple juice.", drink.Description);
+        }
+
+        [Fact]
         public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
         {
             Assert.PropertyChanged(drink, "Ice", () => drink.Ice = true);
@@ -87,8 +94,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             drink.Size = Size.Small;
             Assert.Equal(Size.Small, drink.Size);
         }
-
-        [Theory]
+        [Fact]
+        public void ShouldBeAbleToSetPrice()
+        {
+            Assert.Equal(0.62, drink.Price);
+        }
+            [Theory]
         [InlineData(Size.Small, 0.62)]
         [InlineData(Size.Medium, 0.87)]
         [InlineData(Size.Large, 1.01)]

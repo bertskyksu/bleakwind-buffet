@@ -12,11 +12,17 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+
     /// <summary>
     /// This class represents the Entree Smokehouse Skeleton and its customer order characteristics
     /// </summary>
     public class SmokehouseSkeleton : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
 
         /*
         /// <summary>

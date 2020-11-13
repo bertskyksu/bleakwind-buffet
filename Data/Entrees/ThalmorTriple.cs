@@ -12,11 +12,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+
+
     /// <summary>
     /// This class represents the Entree Thalmor Triple and its customer order characteristics
     /// </summary>
     public class ThalmorTriple : Entree, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
 
         /*
         /// <summary>

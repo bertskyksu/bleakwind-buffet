@@ -20,6 +20,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         MadOtarGrits side = new MadOtarGrits();
 
         [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("Cheesey Grits.", side.Description);
+        }
+        [Fact]
         public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
         {
             Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);

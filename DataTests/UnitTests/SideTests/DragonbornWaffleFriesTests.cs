@@ -19,6 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         DragonbornWaffleFries side = new DragonbornWaffleFries();
 
         [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+
+            Assert.Equal("Crispy fried potato waffle fries.", side.Description);
+        }
+        [Fact]
         public void ProfileShouldNotifyOfFoodSizeCustomizationChanges()
         {
             Assert.PropertyChanged(side, "Size", () => side.Size = Size.Medium);

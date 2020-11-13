@@ -12,11 +12,17 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+
     /// <summary>
     /// This class represents the Drink Candlehearth Coffee and its customer order characteristics
     /// </summary>
     public class CandlehearthCoffee : Drink, INotifyPropertyChanged
     {
+
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Fair trade, fresh ground dark roast coffee.";
 
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.

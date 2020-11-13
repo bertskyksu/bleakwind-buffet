@@ -113,22 +113,106 @@ namespace Website.Pages
             this.CaloriesMax = CaloriesMax; //keeps value updated after a search on the html
             this.PricesMin = PricesMin;
             this.PricesMax = PricesMax;
+            //set the displayed results to All original Entrees, sides, drinks (avoids the first search needing to refer to Entrees.Where()
+            DisplayedEntrees = Entrees;
+            DisplayedSides = Sides;
+            DisplayedDrinks = Drinks;
+
+
+            if (FoodTypes.Count() != 0) //no checkboxes are not checked so ignore category search
+            {
+                List<IOrderItem> emptyList = new List<IOrderItem>();
+                if (FoodTypes.Contains("Entrees"))
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree is Entree);
+                }
+                else DisplayedEntrees = emptyList;
+                if (FoodTypes.Contains("Sides"))
+                {
+                    DisplayedSides = DisplayedSides.Where(side => side is Side);
+                }
+                else DisplayedSides = emptyList;
+                if (FoodTypes.Contains("Drinks"))
+                {
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink is Drink);
+                }
+                else DisplayedDrinks = emptyList;
+
+            }
             //Categories
-            DisplayedEntrees = Menu.FilterByType(Entrees, FoodTypes);
-            DisplayedSides = Menu.FilterByType(Sides, FoodTypes);
-            DisplayedDrinks = Menu.FilterByType(Drinks, FoodTypes);
-            //Search terms
-            DisplayedEntrees = Menu.Search(DisplayedEntrees, SearchTerms);
-            DisplayedSides = Menu.Search(DisplayedSides, SearchTerms);
-            DisplayedDrinks = Menu.Search(DisplayedDrinks, SearchTerms);
-            //Calories:
-            DisplayedEntrees = Menu.FilterByCalories(DisplayedEntrees, CaloriesMin, CaloriesMax);
-            DisplayedSides = Menu.FilterByCalories(DisplayedSides, CaloriesMin, CaloriesMax);
-            DisplayedDrinks = Menu.FilterByCalories(DisplayedDrinks, CaloriesMin, CaloriesMax);
-            //Prices:
-            DisplayedEntrees = Menu.FilterByPrices(DisplayedEntrees, PricesMin, PricesMax);
-            DisplayedSides = Menu.FilterByPrices(DisplayedSides, PricesMin, PricesMax);
-            DisplayedDrinks = Menu.FilterByPrices(DisplayedDrinks, PricesMin, PricesMax);
+                //DisplayedEntrees = Menu.FilterByType(Entrees, FoodTypes); //starts filtering from All entrees
+                //DisplayedSides = Menu.FilterByType(Sides, FoodTypes);
+                //DisplayedDrinks = Menu.FilterByType(Drinks, FoodTypes);
+
+            //testing Linq method/ query sql
+            if(SearchTerms != null) //search terms using LINQ Where() method
+            {
+                //note we should separate string into a string array and then run through this multiple times to accumulate a list 
+                // so that we can use multiple search words without achieving minimal results
+                DisplayedEntrees = DisplayedEntrees.Where(entree => entree.ToString() != null 
+                    && entree.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+                DisplayedSides = DisplayedSides.Where(side => side.ToString() != null
+                    && side.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+                DisplayedDrinks = DisplayedDrinks.Where(drink => drink.ToString() != null
+                    && drink.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+            }
+            //Search terms filter... using functions() from menu.cs
+                //DisplayedEntrees = Menu.Search(DisplayedEntrees, SearchTerms);
+                //DisplayedSides = Menu.Search(DisplayedSides, SearchTerms);
+                //DisplayedDrinks = Menu.Search(DisplayedDrinks, SearchTerms);
+            
+            if(CaloriesMin != 0 || CaloriesMax != 0) //Calories filter using LINQ Where() method
+            {
+                if (CaloriesMax == 0)
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Calories >= CaloriesMin);
+                    DisplayedSides = DisplayedSides.Where(side => side.Calories >= CaloriesMin);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Calories >= CaloriesMin);
+
+                }
+                else if (CaloriesMin == 0)
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Calories <= CaloriesMax);
+                    DisplayedSides = DisplayedSides.Where(side => side.Calories <= CaloriesMax);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Calories <= CaloriesMax);
+                }
+                else //both min and max are specified are available
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Calories >= CaloriesMin && entree.Calories <= CaloriesMax);
+                    DisplayedSides = DisplayedSides.Where(side => side.Calories >= CaloriesMin && side.Calories <= CaloriesMax);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Calories >= CaloriesMin && drink.Calories <= CaloriesMax);
+                }
+            }
+            //Calories filter: ...using functions() from menu.cs
+                //DisplayedEntrees = Menu.FilterByCalories(DisplayedEntrees, CaloriesMin, CaloriesMax);
+                //DisplayedSides = Menu.FilterByCalories(DisplayedSides, CaloriesMin, CaloriesMax);
+                //DisplayedDrinks = Menu.FilterByCalories(DisplayedDrinks, CaloriesMin, CaloriesMax);
+            if (PricesMin != 0 || PricesMax != 0) //Prices filter using LINQ Where() method
+            {
+                if (PricesMax == 0)
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Price >= PricesMin);
+                    DisplayedSides = DisplayedSides.Where(side => side.Price >= PricesMin);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Price >= PricesMin);
+
+                }
+                else if (PricesMin == 0)
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Price <= PricesMax);
+                    DisplayedSides = DisplayedSides.Where(side => side.Price <= PricesMax);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Price <= PricesMax);
+                }
+                else //both min and max are specified are available
+                {
+                    DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Price >= PricesMin && entree.Price <= PricesMax);
+                    DisplayedSides = DisplayedSides.Where(side => side.Price >= PricesMin && side.Price <= PricesMax);
+                    DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Price >= PricesMin && drink.Price <= PricesMax);
+                }
+            }
+            //Prices filter: ..using functions() from menu.cs
+                //DisplayedEntrees = Menu.FilterByPrices(DisplayedEntrees, PricesMin, PricesMax);
+                //DisplayedSides = Menu.FilterByPrices(DisplayedSides, PricesMin, PricesMax);
+                //DisplayedDrinks = Menu.FilterByPrices(DisplayedDrinks, PricesMin, PricesMax);
         }
     }
 }

@@ -29,5 +29,10 @@ namespace BleakwindBuffet.Data.Interface
         /// </summary>
         List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// the description of a food item
+        /// </summary>
+        string Description { get; }
+
     }
 }

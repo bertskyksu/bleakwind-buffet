@@ -19,6 +19,11 @@ namespace BleakwindBuffet.Data.Sides
     public class FriedMiraak : Side, INotifyPropertyChanged
     {
 
+        /// <summary>
+        /// The description of the food item to be displayed on the menu
+        /// </summary>
+        public override string Description => "Perfectly prepared hash brown pancakes.";
+
         /*
         /// <summary>
         /// This implements the interface of INotifyPropertyChanged.
