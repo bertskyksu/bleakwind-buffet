@@ -149,12 +149,35 @@ namespace Website.Pages
             {
                 //note we should separate string into a string array and then run through this multiple times to accumulate a list 
                 // so that we can use multiple search words without achieving minimal results
-                DisplayedEntrees = DisplayedEntrees.Where(entree => entree.ToString() != null 
-                    && entree.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
-                DisplayedSides = DisplayedSides.Where(side => side.ToString() != null
-                    && side.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
-                DisplayedDrinks = DisplayedDrinks.Where(drink => drink.ToString() != null
-                    && drink.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+                string[] splitString = SearchTerms.Split(' ');
+                IEnumerable<IOrderItem> listEntrees = Enumerable.Empty<IOrderItem>();
+                IEnumerable<IOrderItem> listSides = Enumerable.Empty<IOrderItem>();
+                IEnumerable<IOrderItem> listDrinks = Enumerable.Empty<IOrderItem>();
+                IEnumerable<IOrderItem> list = Enumerable.Empty<IOrderItem>();
+                foreach (string word in splitString)
+                {
+                    //listEntrees = DisplayedEntrees.Where(entree => entree.ToString() != null
+                    //&& entree.ToString().Contains(word, StringComparison.InvariantCultureIgnoreCase));
+                    list = DisplayedEntrees.Where(entree => entree.ToString() != null
+                        && (entree.ToString().Contains(word, StringComparison.InvariantCultureIgnoreCase)
+                        || entree.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase)));
+                    listEntrees = listEntrees.Concat(list);
+
+                    list = DisplayedSides.Where(side => side.ToString() != null
+                        && (side.ToString().Contains(word, StringComparison.InvariantCultureIgnoreCase)
+                        || side.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase)));
+                    listSides = listSides.Concat(list);
+
+                    list = DisplayedDrinks.Where(drink => drink.ToString() != null
+                        && (drink.ToString().Contains(word, StringComparison.InvariantCultureIgnoreCase)
+                        || drink.Description.Contains(word, StringComparison.InvariantCultureIgnoreCase)));
+                    listDrinks = listDrinks.Concat(list);
+                }
+                DisplayedEntrees = listEntrees;
+                DisplayedSides = listSides;
+                DisplayedDrinks = listDrinks;
+
+
             }
             //Search terms filter... using functions() from menu.cs
                 //DisplayedEntrees = Menu.Search(DisplayedEntrees, SearchTerms);
