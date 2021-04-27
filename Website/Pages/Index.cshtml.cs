@@ -72,31 +72,31 @@ namespace Website.Pages
         /// The filtered Food type: Entree, Side, or 
         /// </summary>
         public string[] FoodTypes { get; set; }
-
+        
         /// <summary>
         /// The minimum calories specified by the web user
         /// </summary>
         [BindProperty]
-        public uint CaloriesMin { get; set; }
+        public uint? CaloriesMin { get; set; }
 
         /// <summary>
         /// The maximum calories specified by the web user
         /// </summary>
         [BindProperty]
-        public uint CaloriesMax { get; set; }
+        public uint? CaloriesMax { get; set; }
 
         /// <summary>
         /// The minimum Price specified by the web user
         /// </summary>
         [BindProperty]
-        public double PricesMin { get; set; }
+        public double? PricesMin { get; set; }
 
         /// <summary>
         /// The maximum Price specified by the web user
         /// </summary>
         [BindProperty]
-        public double PricesMax { get; set; }
-
+        public double? PricesMax { get; set; }
+        
         /// <summary>
         /// This code runs during initial start of the webpage. AnyTime the submit button is clicked this code will run again calling on
         /// the filter methods provided in the Menu.cs class to filter the food results in the html webpage
@@ -105,7 +105,7 @@ namespace Website.Pages
         /// <param name="CaloriesMax">Maximum Calories specified by user</param>
         /// <param name="PricesMin">minimum Price specified by user</param>
         /// <param name="PricesMax">Maximum Price specified by user</param>
-        public void OnGet(uint CaloriesMin, uint CaloriesMax, double PricesMin, double PricesMax)
+        public void OnGet(uint? CaloriesMin, uint? CaloriesMax, double? PricesMin, double? PricesMax)
         {
             SearchTerms = Request.Query["SearchTerms"];
             FoodTypes = Request.Query["FoodTypes"];
@@ -184,16 +184,16 @@ namespace Website.Pages
                 //DisplayedSides = Menu.Search(DisplayedSides, SearchTerms);
                 //DisplayedDrinks = Menu.Search(DisplayedDrinks, SearchTerms);
             
-            if(CaloriesMin != 0 || CaloriesMax != 0) //Calories filter using LINQ Where() method
+            if((CaloriesMin != 0 && CaloriesMin != null) || (CaloriesMax != 0 && CaloriesMax != null)) //Calories filter using LINQ Where() method
             {
-                if (CaloriesMax == 0)
+                if (CaloriesMax == 0 || CaloriesMax == null)
                 {
                     DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Calories >= CaloriesMin);
                     DisplayedSides = DisplayedSides.Where(side => side.Calories >= CaloriesMin);
                     DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Calories >= CaloriesMin);
 
                 }
-                else if (CaloriesMin == 0)
+                else if (CaloriesMin == 0 || CaloriesMin == null)
                 {
                     DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Calories <= CaloriesMax);
                     DisplayedSides = DisplayedSides.Where(side => side.Calories <= CaloriesMax);
@@ -210,16 +210,16 @@ namespace Website.Pages
                 //DisplayedEntrees = Menu.FilterByCalories(DisplayedEntrees, CaloriesMin, CaloriesMax);
                 //DisplayedSides = Menu.FilterByCalories(DisplayedSides, CaloriesMin, CaloriesMax);
                 //DisplayedDrinks = Menu.FilterByCalories(DisplayedDrinks, CaloriesMin, CaloriesMax);
-            if (PricesMin != 0 || PricesMax != 0) //Prices filter using LINQ Where() method
+            if ((PricesMin != 0 && PricesMin != null) || (PricesMax != 0 && PricesMax != null)) //Prices filter using LINQ Where() method
             {
-                if (PricesMax == 0)
+                if (PricesMax == 0 || PricesMax == null)
                 {
                     DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Price >= PricesMin);
                     DisplayedSides = DisplayedSides.Where(side => side.Price >= PricesMin);
                     DisplayedDrinks = DisplayedDrinks.Where(drink => drink.Price >= PricesMin);
 
                 }
-                else if (PricesMin == 0)
+                else if (PricesMin == 0 || PricesMin == null)
                 {
                     DisplayedEntrees = DisplayedEntrees.Where(entree => entree.Price <= PricesMax);
                     DisplayedSides = DisplayedSides.Where(side => side.Price <= PricesMax);

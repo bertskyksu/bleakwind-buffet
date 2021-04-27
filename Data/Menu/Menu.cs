@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Menu
         public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> foodList, string terms) //term we are searching for
         {
             List<IOrderItem> results = new List<IOrderItem>(); //create an empty list to return
-            var firstElement = foodList.FirstOrDefault();
+            //var firstElement = foodList.FirstOrDefault();
             if (terms == null) return foodList; //confirming checkboxes... but problem is multiple are checked
                 foreach(IOrderItem foodItem in foodList)
                 {
@@ -98,7 +98,7 @@ namespace BleakwindBuffet.Data.Menu
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> foodList, uint? min, uint? max)
         {
             List<IOrderItem> results = new List<IOrderItem>(); //create an empty list to return
-            if (min == 0 && max == 0) return foodList;
+            if ((min == 0 || min == null) && (max == 0 || max == null)) return foodList;
             // only a minimum specified
             if (max == null || max == 0)
             {
@@ -138,7 +138,7 @@ namespace BleakwindBuffet.Data.Menu
         public static IEnumerable<IOrderItem> FilterByPrices(IEnumerable<IOrderItem> foodList, double? min, double? max)
         {
             List<IOrderItem> results = new List<IOrderItem>(); //create an empty list to return
-            if (min == 0 && max == 0) return foodList;
+            if ((min == 0 || min == null) && (max == 0 || max == null)) return foodList;
             // only a minimum specified
             if (max == null || max == 0)
             {
